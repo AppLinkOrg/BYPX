@@ -1,0 +1,12 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/auth/auth"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "enablePullDownRefresh": true,
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTextStyle": "black"
+  }
+}
