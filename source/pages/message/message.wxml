@@ -1,0 +1,37 @@
+<view class="flex-row flex-center " style='border-bottom:1px solid #E5E5E5'>
+  <view class=" margin-20 ">
+    <image class='icon-40 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.tx}}'></image>
+  </view>
+  <view class=" margin-20 flex-warp flex-1">
+    <view class="txt-black flex-row">落叶无声给您留言了
+      <view class="margin-left-20 wd  ">未读</view>
+    </view>
+    <view class="h6">小姐姐能便宜点不？</view>
+    <view class="margin-top-5 h6">1小时前</view>
+
+
+  </view>
+  <view class="margin-20  ">
+    <image class='icon-60  margin-top-5' src='{{uploadpath}}resource/{{res.ipad}}'></image>
+  </view>
+
+</view>
+
+<view class="flex-row flex-center " style='border-bottom:1px solid #E5E5E5'>
+  <view class=" margin-20 ">
+    <image class='icon-40 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.tx}}'></image>
+  </view>
+  <view class=" margin-20 flex-warp flex-1">
+    <view class="txt-black flex-row">落叶无声给您留言了
+      <view class="margin-left-20 yd txt-white ">已读</view>
+    </view>
+    <view class="h6">小姐姐能便宜点不？</view>
+    <view class="margin-top-5 h6">1小时前</view>
+
+
+  </view>
+  <view class="margin-20  ">
+    <image class='icon-60  margin-top-5' src='{{uploadpath}}resource/{{res.ipad}}'></image>
+  </view>
+
+</view>

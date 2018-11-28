@@ -1,1 +1,127 @@
-home
+<view class="flex-row top">
+  <view class="flex-1 flex-row">
+    <view class="flex-center padding-10 ">
+      <image class='icon-10 margin-left-20' src='{{uploadpath}}resource/{{res.xia}}'></image>
+    </view>
+    <view class=" padding-10 txt-black flex-center  flex-1">深圳大学</view>
+  </view>
+  <!-- 搜索 -->
+  <navigator url='/pages/search/search' class='flex-2 search flex-row padding-10' style=''>
+    <view>
+      <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.sousuogray}}'></image>
+    </view>
+    <view class="margin-left-10">搜索商品</view>
+  </navigator>
+</view>
+<view>
+  <!-- 轮播 -->
+  <swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='width:750rpx;height:280rpx;'>
+    <swiper-item wx:for="{{indexbanner}}" wx:key="k">
+      <view>
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:280rpx;' mode="aspectFill"></image>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 广告 -->
+<view class="flex-row  flex-center h6 gd" style='width:750rpx;height:90rpx;'>
+  <view class="margin-left-20">
+    <view>
+      <image class='icon-30 margin-left-10 margin-top-10' src='{{uploadpath}}resource/{{res.tonggao}}'></image>
+    </view>
+  </view>
+  <view class="txt-black margin-left-20 margin-right-20">:</view>
+  <view class="txt-black">轰趴馆周年庆活动火热报名中</view>
+</view>
+<!-- 导航 -->
+<view>
+  <view class='flex-row flex-center text-center gd margin-top-5' style='width:100%;height:180prx'>
+    <navigator wx:for="{{goodslist}}" wx:for-index="idx" wx:key="k"  wx:if="{{[idx]<5}}" url='/pages/list/list?id={{item.id}}' class="flex-1">
+      <view class="flex-wrap">
+        <image class='icon-30 margin-left-10 margin-top-10' src='{{uploadpath}}productcat/{{item.logo}}'></image>
+        <view class="h6 txt-black">{{item.name}}</view>
+      </view>
+    </navigator>
+
+  </view>
+  <view class='flex-row flex-center text-center gd ' style='width:100%;height:180prx'>
+    <navigator wx:for="{{goodslist}}" wx:for-index="idx" wx:key="k"  wx:if="{{[idx]>4}}" url='/pages/list/list?id={{item.id}}' class="flex-1">
+      <view class="flex-wrap">
+        <image class='icon-30 margin-left-10 margin-top-10' src='{{uploadpath}}productcat/{{item.logo}}'></image>
+        <view class="h6 txt-black">{{item.name}}</view>
+      </view>
+    </navigator>
+  </view>
+</view>
+<!-- 推荐 -->
+<view class=" gd">
+  <!-- 分类导航 -->
+  <view class="flex-row flex-center text-center margin-top-20  gd">
+    <view class="flex-2"></view>
+    <view class="flex-3   {{tab==0?'aa':'bb'}} " bindtap='changetab' id="0"> 热门推荐</view>
+    <view class="flex-3"></view>
+    <view class="flex-3 {{tab==1?'aa':'bb'}} " bindtap='changetab' id="1">最新发布</view>
+    <view class="flex-2"></view>
+  </view>
+
+
+
+</view>
+<!-- 热门推荐-->
+<navigator url='/pages/details/details?id={{item.id}}' wx:for="{{list}}" wx:key="k"  wx:for-index="idx" class="margin-top-10 gd flex-row flex-center " hidden='{{tab!=0}}'>
+  <view class="flex-1 margin-top-10 margin-right-20 margin-left-10">
+
+    <image class=' margin-left-10 ' style='width:170rpx;height:250rpx' src='{{uploadpath}}product/{{item.poster}}'></image>
+
+  </view>
+
+  <view class="flex-3 flex-wrap ">
+    <view class="txt-black ">{{item.name}}</view>
+    <view class="margin-top-5 h6 margin-right-10" style='height:150rpx'>{{item.summary}}</view>
+    <view class=" flex-row flex-center">
+      <view class="flex-4 flex-row flex-bottom">
+        <view>价格</view>
+        <view class="h4 margin-left-10" style='color:#E51C23'>￥{{item.price}}</view>
+      </view>
+      <view class="flex-3" style='color:#BBBBBB;text-decoration:line-through;'>原价{{item.oriprice}}</view>
+      <view class="flex-3 text-center flex-row ">
+        <view class="margin-top-5">
+          <image class='icon-17   ' src='{{uploadpath}}resource/{{res.shoucanggray}}'></image>
+        </view>
+        <view class="margin-left-10">收藏</view>
+      </view>
+
+    </view>
+
+  </view>
+
+</navigator>
+<!-- 最新发布-->
+<navigator url='/pages/details/details?id={{item.id}}' wx:for="{{list}}" wx:key="k"  wx:for-index="idx" class="margin-top-10 gd flex-row flex-center " hidden='{{tab!=1}}'>
+  <view class="flex-1 margin-top-10 margin-right-20 margin-left-10">
+
+    <image class=' margin-left-10 ' style='width:170rpx;height:250rpx' src='{{uploadpath}}product/{{item.poster}}'></image>
+
+  </view>
+
+  <view class="flex-3 flex-wrap margin-top-10">
+    <view class="txt-black">{{item.name}}</view>
+    <view class="margin-top-10 h6 margin-right-10">{{item.summary}}</view>
+    <view class="margin-top-80 flex-row flex-center">
+      <view class="flex-4 flex-row flex-bottom">
+        <view>价格</view>
+        <view class="h4 margin-left-10" style='color:#E51C23'>￥{{item.price}}</view>
+      </view>
+      <view class="flex-3" style='color:#BBBBBB;text-decoration:line-through;'>原价{{item.oriprice}}</view>
+      <view class="flex-3 text-center flex-row ">
+        <view class="margin-top-5">
+          <image class='icon-17   ' src='{{uploadpath}}resource/{{res.shoucanggray}}'></image>
+        </view>
+        <view class="margin-left-10">收藏</view>
+      </view>
+
+    </view>
+
+  </view>
+
+</navigator>

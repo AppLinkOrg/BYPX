@@ -1,9 +1,33 @@
-.Top{
-  background-color:#2699EC;
+.top{
+  background-color:#F6AE4A;
+}
+page {
+  background-color: #f3f3f3;
+}
+.gd{
+ background-color: white;
+
+
+}
+.aa{
+font-weight: bold;
+   color: #f7b81f;
+   padding-bottom: 10rpx;
+    border-bottom: 1px solid #f7b81f;
 }
 .search{
-  width:680rpx;
-  border-radius: 7rpx;
+margin-right: 30rpx;
+
+ 
+  background-color: white;
+    border:none;
+     border-radius: 50rpx;
+    
+   margin-bottom: 20rpx
+}
+.search{
+  
+  border-radius: 25rpx;
   background-color: white;
 }
 .search_icon{

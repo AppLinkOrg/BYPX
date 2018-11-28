@@ -1,0 +1,45 @@
+<view class="flex-wrap text-center flex-center top">
+  <view>
+    <image class=' icon-100  avatar   margin-top-40' src="{{UserInfo.avatarUrl}}"> </image>
+  </view>
+  <view class="txt-white">{{UserInfo.nickName}}</view>
+</view>
+<view class="flex-wrap  flex-center gd">
+  <navigator url="/pages/certification/certification" class="flex-row" style='border-bottom:1px solid #E5E5E5'>
+    <view class="margin-20">
+      <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.woderenzheng}}'></image>
+    </view>
+    <view class="margin-20 txt-black">校园认证</view>
+  </navigator>
+  <navigator url="/pages/myrelease/myrelease"  class="flex-row" style='border-bottom:1px solid #E5E5E5'>
+    <view class="margin-20">
+      <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.wodefabu}}'></image>
+    </view>
+    <view class="margin-20 txt-black">我的发布</view>
+  </navigator>
+  <navigator url="/pages/mycollection/mycollection" class="flex-row" style='border-bottom:1px solid #E5E5E5'>
+    <view class="margin-20">
+      <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.wodeshoucang}}'></image>
+    </view>
+    <view class="margin-20 txt-black">我的收藏</view>
+  </navigator>
+  <view class="flex-row" style='border-bottom:1px solid #E5E5E5'>
+    <view class="margin-20">
+      <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.wodesonghuofuwu}}'></image>
+    </view>
+    <view class="margin-20 txt-black">送货服务</view>
+  </view>
+  <view class="flex-row" style='border-bottom:1px solid #E5E5E5'>
+    <view class="margin-20">
+      <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.wodeguanyuwomen}}'></image>
+    </view>
+    <view class="margin-20 txt-black">关于我们</view>
+  </view>
+  <view class="flex-row" style='border-bottom:1px solid #E5E5E5'>
+    <view class="margin-20">
+      <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.wodelianxikefu}}'></image>
+    </view>
+    <view class="margin-20 txt-black">联系客服</view>
+  </view>
+
+</view>

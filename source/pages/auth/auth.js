@@ -26,6 +26,7 @@ class Content extends AppBase {
   }
 
   getUserInfo(e) {
+    console.log(666666666);
     wx.redirectTo({
       url: '/pages/home/home',
     });

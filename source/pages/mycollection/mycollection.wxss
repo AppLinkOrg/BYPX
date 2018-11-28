@@ -1,0 +1,16 @@
+.sc{
+  
+height:530rpx;
+border-radius: 20rpx;
+background-attachment: fixed;
+background-size: 100% auto; 
+background-repeat: no-repeat; 
+
+
+}
+.xm{
+background-color: #F8F8F8;
+height: 230rpx;
+
+
+}

@@ -1,0 +1,105 @@
+.ss{
+  border:1px solid #FFB400 ;
+  color: #FFB400;
+   border-radius: 50rpx;
+  
+}
+.top{
+
+  background-color: #F6AE4A;
+  height: 300rpx;
+}
+.dl{
+
+border-bottom:1px solid #E5E5E5
+
+}
+.rs{
+
+background-color: #E5E5E5;
+border-radius: 10rpx;                                                                                                                 
+
+}
+.avatar{
+      overflow:hidden;
+    height:150rpx;
+    width: 150rpx;
+    border:3px solid white;
+    border-radius: 50%;
+}
+page {
+  background-color: #E5E5E5;
+}
+.gd{
+ background-color: white;
+
+
+}
+.search{
+margin-right: 30rpx;
+
+ margin-top:10rpx;
+  background-color: #E5E5E5;
+    border:none;
+     border-radius: 50rpx;
+    
+   margin-bottom: 20rpx
+}
+
+.search_icon{
+  height:40rpx;
+  width:40rpx;
+}
+.Mid{
+  height: 150rpx;
+}
+.mid1{
+  background:#F6511D;
+  border-radius:10rpx;
+}
+.gm{
+
+background-color: #FFB400;
+ border-radius: 10rpx;
+ padding-top:5rpx;
+  padding-bottom: 5rpx
+
+}
+.gudin{
+
+position:fixed;
+bottom: 0;
+
+}
+.mid2{
+  background:#FFB400;
+  border-radius:10rpx;
+}
+.evaluation{
+  background-color: #2699EC;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.Under{
+  margin-top: 50rpx;
+  border-bottom: 1rpx solid rgb(233, 231, 231);
+}
+.phone{
+  border-radius: 10rpx;
+  box-shadow: 1px 1px 7px rgb(231, 228, 228);
+}
+.icon{
+  width: 110rpx;
+  height: 180rpx;
+}
+.column{
+  align-content: center;
+  flex-direction:column;
+}
+.ma-0{
+  margin-left: 20rpx;
+}
+.ma-1{
+  margin-left: 20rpx;
+}

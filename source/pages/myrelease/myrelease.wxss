@@ -1,0 +1,13 @@
+.aa{
+font-weight: bold;
+   color: #f7b81f;
+   border-bottom: 1px solid #f7b81f;
+}
+.xiajia{
+height: 45rpx;
+  padding-left:30rpx;
+  padding-right: 30rpx;
+  margin-right:30rpx;
+  border:1px solid black;
+  border-radius: 8rpx;
+}

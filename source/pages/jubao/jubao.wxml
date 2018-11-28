@@ -1,0 +1,51 @@
+<!--pages/alert/alert.wxml-->
+<form bindsubmit='confirm'>
+  <view class='border-bottom padding'>
+    请选择举报原因
+  </view>
+  <view class='padding-20 flex-warp'>
+    <view class="flex-row  xhx">
+      <view >
+        <image class='icon-20 margin-5 ' src='{{uploadpath}}resource/{{res.jubaoxuanxiangkong}}'></image>
+      </view>
+      <view class="margin-left-10 ">涉嫌欺诈</view>
+    </view>
+    <view class="flex-row  xhx margin-top-20">
+      <view>
+        <image class='icon-20 margin-5 ' src='{{uploadpath}}resource/{{res.jubaoxuanxiangkong}}'></image>
+      </view>
+      <view class="margin-left-10">违规信息</view>
+    </view>
+    <view class="flex-row xhx margin-top-20">
+      <view>
+        <image class='icon-20 margin-5 ' src='{{uploadpath}}resource/{{res.jubaoxuanxiangkong}}'></image>
+      </view>
+      <view class="margin-left-10">广告骚扰</view>
+    </view>
+    <view class="flex-row xhx margin-top-20">
+      <view>
+        <image class='icon-20  margin-5' src='{{uploadpath}}resource/{{res.jubaoxuanxiangkong}}'></image>
+      </view>
+      <view class="margin-left-10">言语辱骂</view>
+    </view>
+
+
+  </view>
+ <view class='padding-20  txt-gray'>
+   过程描述
+  </view>
+  <view class='padding-10 h6 txt-gray'>
+   请尽可能详细描述您遇到的问题，并提交后台，平台收到后将尽快处理。
+  </view>
+
+  <view class='padding-20'>
+    <view class=' bg-gray padding-20' style=''>
+      <textarea class='fullimg h6' name="reason" placeholder='多行文本框限200字' maxlength='200'></textarea>
+    </view>
+  </view>
+
+  <view class='padding-20'>
+    <button class="fabu" form-type='submit'>提交</button>
+  </view>
+
+</form>

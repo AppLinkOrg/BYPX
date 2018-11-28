@@ -8,6 +8,12 @@ page{
   position: absolute;  
   opacity: 0;
 }
+.null_icon {
+  height: 200rpx;
+  width: 240rpx;
+  margin-top: 150rpx;
+  margin-left: 20rpx;
+}
 .clear-contact-debug{ 
   opacity: 1;
   background: orange;
@@ -75,8 +81,20 @@ view,navigator,input,text,textarea{
 .flex-5{
   flex:5;
 }
+.flex-6{
+  flex:6;
+}
+.flex-7{
+  flex:7;
+}
+.flex-8{
+  flex:8;
+}
 .text-center{
   text-align: center;
+}
+.text-left{
+  text-align: left;
 }
 .text-right{
   text-align: right;
@@ -327,6 +345,12 @@ button[disabled][type=primary] {
 .margin-top-60{
   margin-top:60rpx;
 }
+.margin-top-40{
+  margin-top:40rpx;
+}
+.padding-bottom-40{
+  padding-bottom:40rpx;
+}
 .margin-top-80{
   margin-top:80rpx;
 }
@@ -338,6 +362,12 @@ button[disabled][type=primary] {
 }
 .margin-bottom-40{
   margin-bottom:40rpx;
+}
+.margin-bottom{
+  margin-bottom:60rpx;
+}
+.padding-bottom{
+  padding-bottom:60rpx;
 }
 .height-40{
   height: 40rpx;
@@ -358,8 +388,9 @@ button[disabled][type=primary] {
   margin-top:20rpx;
 }
 .margin-top-5{
-  margin-top:10rpx;
+  margin-top:5rpx;
 }
+
 .margin-left-5{
   margin-left:5rpx;
 }
@@ -423,6 +454,10 @@ button[disabled][type=primary] {
 .icon-17{
   width: 35rpx;
   height: 35rpx;
+}
+.icon-20{
+  width: 38rpx;
+  height: 38rpx;
 }
 .icon{
   width: 40rpx;

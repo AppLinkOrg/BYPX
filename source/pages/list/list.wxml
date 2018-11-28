@@ -1,0 +1,45 @@
+
+<view wx:if='{{list.length==0}}' class='flex-row flex-column' >
+  <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.zhaobudao}}'></image>
+  <view class=''>此分类暂无商品,看看其它的吧</view>
+</view>
+
+
+<view wx:if='{{list.length!=0}}'class="flex-row text-center flex-center margin-top-20 padding-bottom-20 dl">
+  <view class="flex-1 " style='color:#FF9800'>默认</view>
+  <view class="flex-1 " style=''>浏览 
+  <image class='icon-17 ' style='margin-top:5rpx ' src='{{uploadpath}}resource/{{res.shangxiagray}}'></image></view>
+  <view class="flex-1">收藏 
+  <image class='icon-17' style='margin-top:5rpx' src='{{uploadpath}}resource/{{res.shangxiagray}}'></image></view>
+  <view class="flex-1">价格 
+  <image class='icon-17'  style='margin-top:5rpx' src='{{uploadpath}}resource/{{res.shangxiagray}}'></image></view>
+</view>
+<navigator url='/pages/details/details?id={{item.id}}'   wx:for="{{list}}" wx:for-index="idx"  class="margin-top-10 gd flex-row flex-center padding-bottom-20 dl ">
+  <view class="flex-1 margin-top-10 margin-right-20 margin-left-10">
+    <image class=' margin-left-10 ' style='width:170rpx;height:250rpx' src='{{uploadpath}}product/{{item.poster}}'></image>
+  </view>
+
+  <view class="flex-3 flex-wrap ">
+    <view class="txt-black">{{item.name}}</view>
+    <view class="margin-top-5 h6 margin-right-10" style='height:150rpx'>{{item.summary}}</view>
+    <view class=" flex-row flex-center">
+      <view class="flex-4 flex-row flex-bottom">
+        <view>价格</view>
+        <view class="h4 margin-left-10" style='color:#E51C23'>￥{{item.price}}</view>
+      </view>
+      <view class="flex-3" style='color:#BBBBBB;text-decoration:line-through;'>原价{{item.oriprice}}</view>
+      <view class="flex-3 text-center flex-row ">
+        <view class="margin-top-5">
+          <image class='icon-17   ' src='{{uploadpath}}resource/{{res.shoucanggray}}'></image>
+        </view>
+        <view class="margin-left-10">收藏</view>
+      </view>
+    </view>
+  </view>
+</navigator>
+
+
+
+
+
+

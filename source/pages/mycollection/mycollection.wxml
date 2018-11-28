@@ -1,0 +1,44 @@
+<!--pages/mycollection/mycollection.wxml-->
+<view class="flex-row flex-center">
+  <view class="flex-1 margin-20 sc flex-warp" style='background:url({{uploadpath}}resource/{{res.	ceshi3}})'>
+    <view class="xm flex-warp" style='margin-top:300rpx'>
+      <view class="margin-10 h6">港行iPad2，16GWi-Fi版，白色</view>
+
+      <view class="margin-10 flex-row" style='border-bottom:1px solid  #f3f3f3 '>
+        <view class="flex-1  h4" style='color:#E6232A'>￥588</view>
+        <view class="h6 margin-top-5">浏览 50</view>
+      </view>
+      <view class="flex-row flex-center">
+        <view class="flex">
+          <image class='icon-30 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.tx}}'></image>
+        </view>
+        <view class="flex h6 margin-10 txt-black " style=''>叶落无声</view>
+        <view class="flex h6 padding-10 txt-black" style='border:1px solid black'>取消收藏</view>
+      </view>
+
+    </view>
+
+  </view>
+
+ <view class="flex-1 margin-20 sc flex-warp" style='background:url({{uploadpath}}resource/{{res.	ceshi3}})'>
+    <view class="xm flex-warp" style='margin-top:300rpx'>
+      <view class="margin-10 h6">港行iPad2，16GWi-Fi版，白色</view>
+
+      <view class="margin-10 flex-row" style='border-bottom:1px solid  #f3f3f3 '>
+        <view class="flex-1  h4" style='color:#E6232A'>￥588</view>
+        <view class="h6 margin-top-5">浏览 50</view>
+      </view>
+      <view class="flex-row flex-center">
+        <view class="flex">
+          <image class='icon-30 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.tx}}'></image>
+        </view>
+        <view class="flex h6 margin-10 txt-black " style=''>叶落无声</view>
+        <view class="flex h6 padding-10 txt-black" style='border:1px solid black'>取消收藏</view>
+      </view>
+
+    </view>
+
+  </view>
+
+
+</view>

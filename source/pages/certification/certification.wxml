@@ -1,0 +1,62 @@
+<view class="whole">
+
+  <view class="flex-warp  flex-center" style='width:90%'>
+
+    <view class="flex-row br">
+      <view class="margin-20">
+        <image class='icon-20  margin-top-5' src='{{uploadpath}}resource/{{res.xingming}}'></image>
+      </view>
+      <view class="margin-20">
+        <input placeholder="学号"></input>
+      </view>
+    </view>
+    <view class="flex-row br">
+      <view class="margin-20">
+        <image class='icon-20  margin-top-5' src='{{uploadpath}}resource/{{res.xuehao}}'></image>
+      </view>
+      <view class="margin-20">
+        <input placeholder="姓名"></input>
+      </view>
+    </view>
+    <view class="margin-20">上传资料</view>
+    <view class="flex-row">
+
+
+
+
+
+
+
+      <view class='  sczp margin-top-20  padding-10' bindtap='uploadimg' style='width:300rpx;height:350rpx'>
+
+  <image wx:if='{{photo!=undefined}}' style='width:300rpx;height:350rpx' class='sczp '  src='{{uploadpath}}driver/{{photo}}'></image>
+
+        <view class='img flex-row flex-column padding-top-100' style='line-height' wx:if='{{photo==undefined}}'>
+          <image class='icon-60 margin-top-60 ' src='{{uploadpath}}resource/{{res.fabugray}}'></image>
+          <view class="margin-top-20">上传学生证或者校园卡</view>
+        </view>
+
+      
+
+      </view>
+
+
+      <image class=' sczp margin-top-20  padding-10 margin-left-20 ' style='width:300rpx;height:350rpx' src='{{uploadpath}}resource/{{res.tx}}'></image>
+
+
+
+
+
+
+
+
+
+
+
+
+    </view>
+    <view class="h6 margin-top-20">为保护您与其他用户的权益，我们将尽快进行人工身份审核，并保证绝不会泄露您任何个人信息</view>
+
+    <view class="text-center  fabu" style=''>提交审核</view>
+  </view>
+</view>

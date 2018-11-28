@@ -1,0 +1,49 @@
+<view class="flex-row flex-center top dl">
+  <!-- 搜索 -->
+  <input style='margin-top:15rpx' class='flex-5 search padding-5 margin-left-20' placeholder="请输入你想要的宝贝" placeholder-style="margin-left:20rpx"></input>
+  <view class="flex-1 ss text-center padding-10 margin-right-10 h5">搜索</view>
+</view>
+<view class="flex-wrap flex-center">
+  <!-- 热搜 -->
+  <view class="margin-top-20 margin-left-10">热搜</view>
+  <view class="flex-row text-center flex-center margin-top-10 margin-left-20">
+    <view class="flex-3 rs">手机</view>
+    <view class="flex-1"></view>
+    <view class="flex-3 rs">手机</view>
+    <view class="flex-1"></view>
+    <view class="flex-3 rs">手机</view>
+    <view class="flex-1"></view>
+    <view class="flex-3 rs">手机</view>
+    <view class="flex-5"></view>
+
+
+  </view>
+
+
+
+
+
+</view>
+
+<view class="flex-wrap flex-cent dl" style="margin-top:60rpx">
+  <view class="flex-row flex-center ">
+    <view class="margin-top-20 margin-left-10 padding-bottom-10">历史</view>
+    <view class="flex-1" style='margin-top:60rpx'></view>
+    <view class="margin-top-20 margin-right-10 padding-bottom-10">
+      <image class='icon-20' src='{{uploadpath}}resource/{{res.qingchujilugray}}'></image>
+    </view>
+  </view>
+
+</view>
+
+
+<view class="flex-row flex-center dl">
+  <view class="margin-top-20 margin-left-10 padding-bottom-10">相机</view>
+  <view class="flex-1" style='margin-top:60rpx'></view>
+  <view class="margin-top-20 margin-right-10 padding-bottom-10"> </view>
+</view>
+<view class="flex-row flex-center dl">
+  <view class="margin-top-20 margin-left-10 padding-bottom-10">自行车</view>
+  <view class="flex-1" style='margin-top:60rpx'></view>
+  <view class="margin-top-20 margin-right-10 padding-bottom-10"> </view>
+</view>

@@ -1,0 +1,36 @@
+<view class=' margin-top-20 ctc_border padding-10' bindtap='uploadimg'>
+
+  <image wx:if='{{photo[0]!=undefined}}' style='width:32%;height:200rpx;margin-left:20rpx' class='' mode='aspectFit' src='{{uploadpath}}driver/{{photo[0]}}'></image>
+  <image wx:if='{{photo[1]!=undefined}}' style='width:32%;height:200rpx' class='' mode='aspectFit' src='{{uploadpath}}driver/{{photo[1]}}'></image>
+  <image wx:if='{{photo[2]!=undefined}}' style='width:32%;height:200rpx' class='' mode='aspectFit' src='{{uploadpath}}driver/{{photo[2]}}'></image>
+  <view class='img flex-row flex-column padding-top-100' style='line-height' wx:if='{{photo==undefined}}'>
+    <image class='icon-60 ' src='{{uploadpath}}resource/{{res.tianjiatupian}}'></image>
+    <view>添加图片</view>
+  </view>
+
+  <input hidden='fales' name="photo" value="{{photo}}"></input>
+
+</view>
+<view class="flex-wrap">
+
+  <view class="gd ">
+    <input placeholder='在此填写宝贝名称' class="margin-20"></input>
+  </view>
+  <view class="gd margin-top-5">
+    <textarea placeholder="在此描写你的宝贝：如品牌、规格、成色、购买渠道、转手原因等等" class="margin-20"></textarea>
+  </view>
+  <view class="gd margin-top-5 flex-row">
+    <view class="flex-1 margin-10">分类</view>
+    <view class="margin-10">
+      <image class='icon-20 ' src='{{uploadpath}}resource/{{res.you}}'></image>
+    </view>
+  </view>
+  <view class="gd margin-top-5 flex-row">
+    <view class="flex-1 margin-10">价格</view>
+    <view class="margin-10">
+      <image class='icon-20 ' src='{{uploadpath}}resource/{{res.you}}'></image>
+    </view>
+  </view>
+  <view class="text-center  fabu" style=''>发布</view>
+
+</view>

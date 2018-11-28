@@ -1,0 +1,6 @@
+<view class='whole flex-wrap flex-center text-center' style='background: url({{uploadpath}}resource/{{res.beijin}});'>
+<view style='width:80%; display: flex; flex-direction: column; justify-content: center;'>
+<navigator url='/pages/fabu/fabu' class="qqq" style='margin-top:400rpx;'>发布</navigator>
+<view class="qqq" style='margin-top:40rpx'>求购</view>
+</view>
+</view>

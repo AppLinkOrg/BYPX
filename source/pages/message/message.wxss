@@ -1,0 +1,14 @@
+.wd{
+padding-right:15rpx;
+padding-left:15rpx;
+  background-color: #E51C23;
+   color:white;
+   border-radius: 10rpx;
+}
+.yd{
+padding-right:15rpx;
+padding-left:15rpx;
+color: black;
+  background-color: #E5E5E5;
+   border-radius: 10rpx;
+}

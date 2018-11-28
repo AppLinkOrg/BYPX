@@ -1,12 +1,59 @@
 {
-  "pages":[
-    "pages/home/home",
-    "pages/auth/auth"
+  "pages": [
+      "pages/home/home",
+    "pages/jubao/jubao",
+  
+    "pages/mycollection/mycollection",
+    "pages/myrelease/myrelease",
+   
+    "pages/certification/certification",
+    "pages/fabu/fabu",
+    "pages/auth/auth",
+    "pages/index/index",
+    "pages/details/details",
+    "pages/list/list",
+    "pages/search/search",
+    "pages/release/release",
+    "pages/message/message",
+    "pages/my/my"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "enablePullDownRefresh": true,
-    "navigationBarBackgroundColor": "white",
+    "navigationBarBackgroundColor": "#F6AE4A",
+    "navigationBarTitleText": "云易创格子铺",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#4C556E",
+    "borderStyle": "#4C556E",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "text": "主页",
+        "pagePath": "pages/home/home",
+        "iconPath": "images/icons/a.png",
+        "selectedIconPath": "images/icons/a-1.png"
+      },
+      {
+        "text": "发布",
+        "pagePath": "pages/release/release",
+        "iconPath": "images/icons/b.png",
+        "selectedIconPath": "images/icons/b-1.png"
+      },
+      {
+        "text": "消息",
+        "pagePath": "pages/message/message",
+        "iconPath": "images/icons/c.png",
+        "selectedIconPath": "images/icons/c-1.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/my/my",
+        "iconPath": "images/icons/d.png",
+        "selectedIconPath": "images/icons/d-1.png"
+      }
+    ]
   }
 }
