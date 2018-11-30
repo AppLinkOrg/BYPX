@@ -1,45 +1,63 @@
-
-<view wx:if='{{list.length==0}}' class='flex-row flex-column' >
+<view wx:if='{{list.length==0}}' class='flex-row flex-column'>
   <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.zhaobudao}}'></image>
   <view class=''>此分类暂无商品,看看其它的吧</view>
 </view>
 
 
-<view wx:if='{{list.length!=0}}'class="flex-row text-center flex-center margin-top-20 padding-bottom-20 dl">
-  <view class="flex-1 " style='color:#FF9800'>默认</view>
-  <view class="flex-1 " style=''>浏览 
-  <image class='icon-17 ' style='margin-top:5rpx ' src='{{uploadpath}}resource/{{res.shangxiagray}}'></image></view>
-  <view class="flex-1">收藏 
-  <image class='icon-17' style='margin-top:5rpx' src='{{uploadpath}}resource/{{res.shangxiagray}}'></image></view>
-  <view class="flex-1">价格 
-  <image class='icon-17'  style='margin-top:5rpx' src='{{uploadpath}}resource/{{res.shangxiagray}}'></image></view>
-</view>
-<navigator url='/pages/details/details?id={{item.id}}'   wx:for="{{list}}" wx:for-index="idx"  class="margin-top-10 gd flex-row flex-center padding-bottom-20 dl ">
-  <view class="flex-1 margin-top-10 margin-right-20 margin-left-10">
-    <image class=' margin-left-10 ' style='width:170rpx;height:250rpx' src='{{uploadpath}}product/{{item.poster}}'></image>
+<view wx:if='{{list.length!=0}}' class="flex-row text-center flex-center margin-top-20 padding-bottom-20 dl">
+  <view class="flex-1 " wx:if='{{viewcount=="Y"||price=="Y"||favcount=="Y"}}' bindtap='list'>默认</view>
+  <view class="flex-1 " style='color:#FF9800' wx:if='{{viewcount!="Y"&&price!="Y"&&favcount!="Y"}}'>默认 </view>
+  <view class="flex-1  flex-row" wx:if="{{viewcount!='Y'}}" bindtap='viewcount'>
+    <view>浏览</view>
+    <image class='icon-17 margin-left-10 ' style='margin-top:5rpx  ' src='{{uploadpath}}resource/{{res.shangxiagray}}'></image>
   </view>
+  <view class="flex-1  flex-row" wx:if="{{viewcount=='Y'}}" bindtap='viewcountdesc'>
+    <view style='color:#FF9800'>浏览</view>
+    <image class='icon-17 margin-left-10 ' style='margin-top:5rpx  ' src='{{uploadpath}}resource/{{res.shangxiagray}}'></image>
+  </view>
+  <view class="flex-1  flex-row" wx:if="{{favcount!='Y'}}" bindtap='favcount'>
+    <view>收藏</view>
+    <image class='icon-17 margin-left-10 ' style='margin-top:5rpx  ' src='{{uploadpath}}resource/{{res.shangxiagray}}'></image>
+  </view>
+  <view class="flex-1  flex-row" wx:if="{{favcount=='Y'}}" bindtap='favcountdesc'>
+    <view style='color:#FF9800'>收藏</view>
+    <image class='icon-17 margin-left-10 ' style='margin-top:5rpx  ' src='{{uploadpath}}resource/{{res.shangxiagray}}'></image>
+  </view>
+  <view class="flex-1 flex-row" wx:if="{{price!='Y'}}" bindtap='price'>
+    <view>价格</view>
+    <image class='icon-17 margin-left-10' style='margin-top:5rpx' src='{{uploadpath}}resource/{{res.shangxiagray}}'></image>
+  </view>
+  <view class="flex-1 flex-row" wx:if="{{price=='Y'}}" bindtap='pricedesc'>
+    <view style='color:#FF9800'>价格</view>
+    <image class='icon-17 margin-left-10' style='margin-top:5rpx' src='{{uploadpath}}resource/{{res.shangxiagray}}'></image>
+  </view>
+</view>
+<view wx:for="{{list}}" wx:key="k" wx:for-index="idx" class="margin-top-10 gd flex-row flex-center padding-bottom-20 dl ">
+  <navigator url='/pages/details/details?id={{item.id}}' class="flex-1 margin-top-10 margin-right-20 margin-left-10">
+    <image class=' margin-left-10 ' style='width:170rpx;height:250rpx' mode='aspectFill' src='{{uploadpath}}product/{{item.cover}}'></image>
+  </navigator>
 
   <view class="flex-3 flex-wrap ">
-    <view class="txt-black">{{item.name}}</view>
-    <view class="margin-top-5 h6 margin-right-10" style='height:150rpx'>{{item.summary}}</view>
+    <navigator url='/pages/details/details?id={{item.id}}'>
+      <view class="txt-black">{{item.name}}</view>
+      <view class="margin-top-5 h6 margin-right-10" style='height:150rpx'>{{item.summary}}</view>
+    </navigator>
     <view class=" flex-row flex-center">
       <view class="flex-4 flex-row flex-bottom">
         <view>价格</view>
         <view class="h4 margin-left-10" style='color:#E51C23'>￥{{item.price}}</view>
       </view>
       <view class="flex-3" style='color:#BBBBBB;text-decoration:line-through;'>原价{{item.oriprice}}</view>
-      <view class="flex-3 text-center flex-row ">
+      <view class="flex-3 text-center flex-row " id='{{item.id}}' bindtap='fav'>
         <view class="margin-top-5">
-          <image class='icon-17   ' src='{{uploadpath}}resource/{{res.shoucanggray}}'></image>
+
+          <image class='icon-17' wx:if='{{item.isfav==0}}' src='{{uploadpath}}resource/{{res.shoucanggray}}'></image>
+          <image class='icon-17' wx:if='{{item.isfav>0}}' src='{{uploadpath}}resource/{{res.shoucangcolor}}'></image>
+
         </view>
-        <view class="margin-left-10">收藏</view>
+        <view class="margin-left-10  ysc  " wx-if='{{item.isfav>0}}'>{{item.favcount}}</view>
+        <view class="margin-left-10  " wx-if='{{item.isfav==0}}'>收藏</view>
       </view>
     </view>
   </view>
-</navigator>
-
-
-
-
-
-
+</view>

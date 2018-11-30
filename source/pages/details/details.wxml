@@ -2,15 +2,21 @@
 <swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='width:750rpx;height:700rpx;'>
   <swiper-item>
     <view>
-      <image src='{{uploadpath}}resource/{{res.ceshi3}}' style='width:750rpx;height:700rpx;' mode="aspectFill"></image>
+      <image src='{{uploadpath}}product/{{imags[0]}}' style='width:750rpx;height:700rpx;' mode="aspectFill"></image>
     </view>
   </swiper-item>
 
   <swiper-item>
     <view>
-      <image src='{{uploadpath}}resource/{{res.ceshi3}}' style='width:750rpx;height:700rpx;' mode="aspectFill"></image>
+      <image src='{{uploadpath}}product/{{imags[1]}}' style='width:750rpx;height:700rpx;' mode="aspectFill"></image>
     </view>
   </swiper-item>
+  <swiper-item>
+    <view>
+      <image src='{{uploadpath}}product/{{imags[2]}}' style='width:750rpx;height:700rpx;' mode="aspectFill"></image>
+    </view>
+  </swiper-item>
+  
 </swiper>
 <!-- 商品资料部分 -->
 <view class=" flex-wrap  gd">
@@ -38,13 +44,13 @@
 <!-- 个人信息部分 -->
 <view class="margin-top-5 flex-row flex-center text-center gd">
   <view class="flex-1 margin-20">
-    <image class='icon-40 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.tx}}'></image>
+    <image class='icon-40 margin-left-10 margin-top-5' src='{{userlist.avatarUrl}}'></image>
   </view>
-  <view class="flex-3 flex-wrap text-left">
-    <view class="txt-black">浪里个浪</view>
-    <view>2018.10.2 15:30</view>
+  <view class="flex-7 flex-wrap text-left">
+    <view class="txt-black">{{userlist.nickName}}</view>
+    <view>{{userlist.updated_date}}</view>
   </view>
-  <view class="flex-4"></view>
+  
 
 
 </view>

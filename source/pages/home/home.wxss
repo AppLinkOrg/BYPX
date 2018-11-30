@@ -9,6 +9,11 @@ page {
 
 
 }
+.ysc{
+
+color: #F6AE4A;
+
+}
 .aa{
 font-weight: bold;
    color: #f7b81f;

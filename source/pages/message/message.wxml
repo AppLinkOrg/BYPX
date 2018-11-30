@@ -1,6 +1,6 @@
 <view class="flex-row flex-center " style='border-bottom:1px solid #E5E5E5'>
   <view class=" margin-20 ">
-    <image class='icon-40 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.tx}}'></image>
+    <image class='icon-40 margin-left-10 margin-top-5' mode='aspectFill' src='{{uploadpath}}resource/{{res.tx}}'></image>
   </view>
   <view class=" margin-20 flex-warp flex-1">
     <view class="txt-black flex-row">落叶无声给您留言了
@@ -12,7 +12,7 @@
 
   </view>
   <view class="margin-20  ">
-    <image class='icon-60  margin-top-5' src='{{uploadpath}}resource/{{res.ipad}}'></image>
+    <image class='icon-60  margin-top-5' mode='aspectFill'  src='{{uploadpath}}resource/{{res.ipad}}'></image>
   </view>
 
 </view>

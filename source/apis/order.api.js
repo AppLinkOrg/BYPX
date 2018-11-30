@@ -58,6 +58,35 @@ export class OrderApi {
       }
     })
   }
+  //查询状态为禁用商品列表
+  list1(json, callback, showLoading = true) {
+    if (showLoading)
+      ApiConfig.ShowLoading();
+    var header = ApiConfig.GetHeader();
+    console.log(header);
+    wx.request({
+      url: ApiConfig.GetApiUrl() + 'product/productlist1',
+      data: json,
+      method: 'POST',
+      dataType: 'json',
+      header: header,
+      success: function (res) {
+        if (callback != null) {
+          callback(res.data);
+        }
+      },
+      fail: function (res) {
+        console.log(res);
+        callback(false);
+      },
+      complete: function (res) {
+        console.log(res);
+
+        if (showLoading)
+          ApiConfig.CloseLoading();
+      }
+    })
+  }
   //查询商品详情
   goods(json, callback, showLoading = true) {
     if (showLoading)
@@ -87,14 +116,14 @@ export class OrderApi {
       }
     })
   }
-  //新增报名运输单
-  applylist(json, callback, showLoading = true) {
+  //会员收藏商品
+  memberfav(json, callback, showLoading = true) {
     if (showLoading)
       ApiConfig.ShowLoading();
     var header = ApiConfig.GetHeader();
     console.log(header);
     wx.request({
-      url: ApiConfig.GetApiUrl() + 'order/applylist',
+      url: ApiConfig.GetApiUrl() + 'product/memberfav',
       data: json,
       method: 'POST',
       dataType: 'json',
@@ -116,14 +145,14 @@ export class OrderApi {
       }
     })
   }
-  //获取车辆列表
-  vehiclelist(json, callback, showLoading = true) {
+  //获取收藏列表
+  productlist(json, callback, showLoading = true) {
     if (showLoading)
       ApiConfig.ShowLoading();
     var header = ApiConfig.GetHeader();
     console.log(header);
     wx.request({
-      url: ApiConfig.GetApiUrl() + 'order/vehiclelist',
+      url: ApiConfig.GetApiUrl() + 'product/productlist',
       data: json,
       method: 'POST',
       dataType: 'json',
@@ -145,14 +174,14 @@ export class OrderApi {
       }
     })
   }
-  //新增车辆
-  addvehicle(json, callback, showLoading = true) {
+  //发布商品
+  addproduct(json, callback, showLoading = true) {
     if (showLoading)
       ApiConfig.ShowLoading();
     var header = ApiConfig.GetHeader();
     console.log(header);
     wx.request({
-      url: ApiConfig.GetApiUrl() + 'order/addvehicle',
+      url: ApiConfig.GetApiUrl() + 'product/addproduct',
       data: json,
       method: 'POST',
       dataType: 'json',
@@ -174,14 +203,14 @@ export class OrderApi {
       }
     })
   }
-  //获取运输单详情
-  info(json, callback, showLoading = true) {
+  //获取收藏列表
+  listpav(json, callback, showLoading = true) {
     if (showLoading)
       ApiConfig.ShowLoading();
     var header = ApiConfig.GetHeader();
     console.log(header);
     wx.request({
-      url: ApiConfig.GetApiUrl() + 'order/info',
+      url: ApiConfig.GetApiUrl() + 'product/listpav',
       data: json,
       method: 'POST',
       dataType: 'json',
@@ -205,14 +234,14 @@ export class OrderApi {
       }
     })
   }
-  //发布运输单
-  create(json, callback, showLoading = true) {
+  //新增校园认证
+  studentcer(json, callback, showLoading = true) {
     if (showLoading)
       ApiConfig.ShowLoading();
     var header = ApiConfig.GetHeader();
     console.log(header);
     wx.request({
-      url: ApiConfig.GetApiUrl() + 'order/create',
+      url: ApiConfig.GetApiUrl() + 'certification/studentcer',
       data: json,
       method: 'POST',
       dataType: 'json',

@@ -1,36 +1,133 @@
-<view class=' margin-top-20 ctc_border padding-10' bindtap='uploadimg'>
+<form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+  <view class=' margin-top-20 ctc_border padding-10' bindtap='uploadimg'>
 
-  <image wx:if='{{photo[0]!=undefined}}' style='width:32%;height:200rpx;margin-left:20rpx' class='' mode='aspectFit' src='{{uploadpath}}driver/{{photo[0]}}'></image>
-  <image wx:if='{{photo[1]!=undefined}}' style='width:32%;height:200rpx' class='' mode='aspectFit' src='{{uploadpath}}driver/{{photo[1]}}'></image>
-  <image wx:if='{{photo[2]!=undefined}}' style='width:32%;height:200rpx' class='' mode='aspectFit' src='{{uploadpath}}driver/{{photo[2]}}'></image>
-  <view class='img flex-row flex-column padding-top-100' style='line-height' wx:if='{{photo==undefined}}'>
-    <image class='icon-60 ' src='{{uploadpath}}resource/{{res.tianjiatupian}}'></image>
-    <view>添加图片</view>
-  </view>
-
-  <input hidden='fales' name="photo" value="{{photo}}"></input>
-
-</view>
-<view class="flex-wrap">
-
-  <view class="gd ">
-    <input placeholder='在此填写宝贝名称' class="margin-20"></input>
-  </view>
-  <view class="gd margin-top-5">
-    <textarea placeholder="在此描写你的宝贝：如品牌、规格、成色、购买渠道、转手原因等等" class="margin-20"></textarea>
-  </view>
-  <view class="gd margin-top-5 flex-row">
-    <view class="flex-1 margin-10">分类</view>
-    <view class="margin-10">
-      <image class='icon-20 ' src='{{uploadpath}}resource/{{res.you}}'></image>
+    <image wx:if='{{photo[0]!=undefined}}' name='photo' style='width:32%;height:200rpx;margin-left:20rpx' class='' mode='aspectFill' src='{{uploadpath}}product/{{photo[0]}}'></image>
+    <image wx:if='{{photo[1]!=undefined}}' name='photo1' style='width:32%;height:200rpx' class='' mode='aspectFill' src='{{uploadpath}}product/{{photo[1]}}'></image>
+    <image wx:if='{{photo[2]!=undefined}}'  name='photo2' style='width:32%;height:200rpx' class='' mode='aspectFill' src='{{uploadpath}}product/{{photo[2]}}'></image>
+    <view class='img flex-row flex-column padding-top-100' style='line-height' wx:if='{{photo==undefined}}'>
+      <image class='icon-60 ' src='{{uploadpath}}resource/{{res.tianjiatupian}}'></image>
+      <view>添加图片</view>
     </view>
-  </view>
-  <view class="gd margin-top-5 flex-row">
-    <view class="flex-1 margin-10">价格</view>
-    <view class="margin-10">
-      <image class='icon-20 ' src='{{uploadpath}}resource/{{res.you}}'></image>
-    </view>
-  </view>
-  <view class="text-center  fabu" style=''>发布</view>
 
-</view>
+ <input  hidden='true' name="photo" value="{{photo}}"></input>
+
+  </view>
+  <view class="flex-wrap">
+
+    <view class="gd ">
+      <input placeholder='在此填写宝贝名称' name='name' bindinput='name' class="margin-20"></input>
+    </view>
+    <view class="gd margin-top-5">
+      <textarea placeholder="在此描写你的宝贝：如品牌、规格、成色、购买渠道、转手原因等等" name='summary' bindinput='summary' class="margin-20"></textarea>
+    </view>
+
+
+    <picker bindchange='qwe' value="{{index}}" range-key="{{'name'}}" range="{{goodslist}}">
+      <view class="gd margin-top-5 flex-row">
+        <view class="flex-1 margin-10" name="cat_id" wx:if="{{xz!='Y'}}">分类</view>
+        <view class="flex-1 margin-10" wx:if="{{xz=='Y'}}">{{goodslist[index].name}}</view>
+        <view class="margin-10">
+          <image class='icon-20 ' src='{{uploadpath}}resource/{{res.you}}'></image>
+        </view>
+
+      </view>
+    </picker>
+<input hidden='true' name="cat_id" value="{{cat_id}}"></input>
+
+
+    <view class="gd margin-top-5 flex-row">
+      <view class="flex-1 margin-10" bindtap='jg'>价格</view>
+      <view class="margin-10">
+        <image class='icon-20 ' src='{{uploadpath}}resource/{{res.you}}'></image>
+      </view>
+
+    </view>
+
+
+
+
+
+
+
+
+
+    <action-sheet hidden="{{passwordInputHidden}}" bindchange="passwordInputHidden">
+      <!-- <view class='password-input'>
+        <view>
+            <text style="display:{{inputPassword[0]?'':'none'}}"></text>
+        </view>
+        <view>
+            <text style="display:{{inputPassword[1]?'':'none'}}"></text>
+        </view>
+        <view>
+            <text style="display:{{inputPassword[2]?'':'none'}}"></text>
+        </view>
+        <view>
+            <text style="display:{{inputPassword[3]?'':'none'}}"></text>
+        </view>
+        <view>
+            <text style="display:{{inputPassword[4]?'':'none'}}"></text>
+        </view>
+        <view>
+            <text style="display:{{inputPassword[5]?'':'none'}}"></text>
+        </view>
+    </view>   -->
+      <view class="flex-wrap">
+        <view class="margin-20 flex-row">想卖多少钱?</view>
+        <view class="margin-20 txt-gray  h4 flex-row " style='border-bottom:1px solid #DDDDDD'><view class="margin-top-20">￥</view>
+          <input type='digit' style='padding:20rpx;width:80%' name='price' bindinput='price' class="margin-left:20rpx"></input>
+
+
+
+        </view>
+
+        <view class="margin-20 flex-row " style='border-bottom:1px solid #DDDDDD'>
+         <view class="margin-top-20">原价</view>
+        
+            <input type='digit' style='padding:20rpx;width:80%' name='price1' bindinput='price1' class="margin-left:20rpx"></input>
+         
+        </view>
+        <view class="margin-20 flex-row ">
+
+          <view class="flex-1 flex-row ">
+            <view class="flex-row">运费
+              <input type='digit' style='width:200rpx; padding:20; margin-left:20rpx'></input>
+            </view>
+          </view>
+
+          <view class="flex-1">包邮</view>
+        </view>
+      </view>
+
+      <view class='keyboard'>
+        <view class='left number'>
+          <view data-key="1" hover-class='active' hover-stay-time='100' bindtap='inputPassword'>1</view>
+          <view data-key="2" hover-class='active' hover-stay-time='100' bindtap='inputPassword'>2</view>
+          <view data-key="3" hover-class='active' hover-stay-time='100' bindtap='inputPassword'>3</view>
+          <view data-key="4" hover-class='active' hover-stay-time='100' bindtap='inputPassword'>4</view>
+          <view data-key="5" hover-class='active' hover-stay-time='100' bindtap='inputPassword'>5</view>
+          <view data-key="6" hover-class='active' hover-stay-time='100' bindtap='inputPassword'>6</view>
+          <view data-key="7" hover-class='active' hover-stay-time='100' bindtap='inputPassword'>7</view>
+          <view data-key="8" hover-class='active' hover-stay-time='100' bindtap='inputPassword'>8</view>
+          <view data-key="9" hover-class='active' hover-stay-time='100' bindtap='inputPassword'>9</view>
+          <view data-key="X" hover-class='active' hover-stay-time='100' bindtap='inputPassword'></view>
+          <view data-key="0" hover-class='active' hover-stay-time='100' bindtap='inputPassword'>0</view>
+          <view data-key="." hover-class='active' hover-stay-time='100' bindtap='inputPassword'>.</view>
+        </view>
+        <view class='right ctr-btn'>
+          <view class='ctr-btn-item' hover-class='active' hover-stay-time='100' bindtap='clear'>
+            <label class='iconfont icon-shanchu'></label>
+          </view>
+          <view class='ctr-btn-item' hover-class='active' hover-stay-time='100' bindtap='passwordInputHidden'>下一项</view>
+        </view>
+      </view>
+    </action-sheet>
+
+
+
+
+    <button class="text-center  fabu" form-type='submit' style=''>发布</button>
+
+  </view>
+
+</form>

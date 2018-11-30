@@ -23,8 +23,7 @@ background-color: #f3f3f3
 .fabu{
 
 color:black;
-padding-top:20rpx;
-padding-bottom:20rpx;
+
 background-color: #F6AE4A;
 margin-top:145rpx;
 border-radius: 10rpx

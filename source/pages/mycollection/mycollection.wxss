@@ -1,6 +1,6 @@
 .sc{
   
-height:530rpx;
+height:630rpx;
 border-radius: 20rpx;
 background-attachment: fixed;
 background-size: 100% auto; 

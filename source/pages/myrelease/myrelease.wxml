@@ -8,48 +8,56 @@
 <view class="flex-2"></view>
 </view>
 <!-- 发布中 -->
-<navigator    url='/pages/details/details?id={{item.id}}'    wx:for-index="idx"  class="margin-top-10 gd flex-row flex-center padding-bottom-20 dl " hidden='{{tab!=0}}' >
+<view  wx:for="{{list}}"   wx:key="k"     wx:for-index="idx"  class="margin-top-10 gd flex-row flex-center padding-bottom-20 dl " hidden='{{tab!=0}}' >
   <view class="flex-1 margin-top-10 margin-right-20 margin-left-10">
-    <image class=' margin-left-10 ' style='width:170rpx;height:200rpx' src='{{uploadpath}}resource/{{res.ipad}}'></image>
+    <image class=' margin-left-10 ' mode='aspectFill' style='width:170rpx;height:200rpx' src='{{uploadpath}}product/{{item.cover}}'></image>
   </view>
 
   <view class="flex-3 flex-wrap ">
-    <view class="txt-black">港行iPad2，16GWi-Fi版</view>
-    <view class="margin-top-20 h4 margin-right-10 flex-row" style='height:100rpx;color:#E51C23'><view class="flex-1">￥588</view>
-    <view class="xiajia">下架</view></view>
+    <view class="txt-black">{{item.name}}</view>
+    <view class="margin-top-20 h4 margin-right-10 flex-row" style='height:100rpx;color:#E51C23'><view class="flex-1">￥{{item.price}}</view>
+    <view class="xiajia" id="{{idx}}"  bindtap='xj'>下架</view></view>
     <view class=" flex-row flex-center">
       <view class="flex-4 flex-row flex-bottom">
         
         <view class=" margin-left-10"style='color:#BBBBBB;' >留言 1</view>
       </view>
-      <view class="flex-3" style='color:#BBBBBB;'>浏览 20</view>
+      <view class="flex-3" style='color:#BBBBBB;'>浏览 {{item.viewcount}}</view>
       <view class="flex-3 text-center flex-row ">
         
       </view>
     </view>
   </view>
-</navigator>
+</view>
+<view wx:if='{{list.length==0}}' class='flex-row flex-column' hidden='{{tab!=0}}'>
+  <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.zanwufabu}}'></image>
+  <view class=''>暂无发布</view>
+</view>
+<view wx:if='{{list1.length==0}}' class='flex-row flex-column' hidden='{{tab!=1}}'>
+  <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.zanwufabu}}'></image>
+  <view class=''>暂无下架</view>
+</view>
 
-
-<navigator    url='/pages/details/details?id={{item.id}}'    wx:for-index="idx"  class="margin-top-10 gd flex-row flex-center padding-bottom-20 dl " hidden='{{tab!=1}}' >
+<!-- 已下架 -->
+<view  wx:for="{{list1}}" wx:key="k"        wx:for-index="idx"  class="margin-top-10 gd flex-row flex-center padding-bottom-20 dl " hidden='{{tab!=1}}'  >
   <view class="flex-1 margin-top-10 margin-right-20 margin-left-10">
-    <image class=' margin-left-10 ' style='width:170rpx;height:200rpx' src='{{uploadpath}}resource/{{res.ipad}}'></image>
+    <image class=' margin-left-10 ' mode='aspectFill' style='width:170rpx;height:200rpx' src='{{uploadpath}}product/{{item.cover}}'></image>
   </view>
 
   <view class="flex-3 flex-wrap ">
-    <view class="txt-black">港行iPad2，16GWi-Fi版</view>
-    <view class="margin-top-20 h4 margin-right-10 flex-row" style='height:100rpx;color:#E51C23'><view class="flex-1">￥588</view>
-    <view class="xiajia">上架</view></view>
+    <view class="txt-black">{{item.name}}</view>
+    <view class="margin-top-20 h4 margin-right-10 flex-row" style='height:100rpx;color:#E51C23'><view class="flex-1">￥{{item.price}}</view>
+    <view class="xiajia" id="{{idx}}" bindtap='shangjia'>上架</view></view>
     <view class=" flex-row flex-center">
       <view class="flex-4 flex-row flex-bottom">
         
         <view class=" margin-left-10"style='color:#BBBBBB;' >留言 1</view>
       </view>
-      <view class="flex-3" style='color:#BBBBBB;'>浏览 20</view>
+      <view class="flex-3" style='color:#BBBBBB;'>浏览 {{item.viewcount}}</view>
       <view class="flex-3 text-center flex-row ">
         
       </view>
     </view>
   </view>
-</navigator>
+</view >
 </view>

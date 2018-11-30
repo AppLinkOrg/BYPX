@@ -24,10 +24,12 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
 
-    // var api = new OrderApi();
-    // api.goods({ id: that.Base.options.id }, (list) => {
-    //   this.Base.setMyData({ list });
-    // });
+     var api = new OrderApi();
+    api.listpav({ member_id: this.Base.getMyData().memberinfo.id }, (list) => {
+      var lists=5/2;
+      console.log(lists);
+      this.Base.setMyData({ list, lists });
+     });
   }
 }
 var content = new Content();

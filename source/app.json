@@ -1,13 +1,16 @@
 {
   "pages": [
-      "pages/home/home",
-    "pages/jubao/jubao",
+    "pages/home/home",
+      "pages/certification/certification",
+    
+   
+   
   
+    
+    "pages/fabu/fabu",
     "pages/mycollection/mycollection",
     "pages/myrelease/myrelease",
-   
-    "pages/certification/certification",
-    "pages/fabu/fabu",
+    "pages/jubao/jubao",
     "pages/auth/auth",
     "pages/index/index",
     "pages/details/details",
