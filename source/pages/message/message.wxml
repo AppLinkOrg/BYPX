@@ -1,37 +1,32 @@
-<view class="flex-row flex-center " style='border-bottom:1px solid #E5E5E5'>
-  <view class=" margin-20 ">
-    <image class='icon-40 margin-left-10 margin-top-5' mode='aspectFill' src='{{uploadpath}}resource/{{res.tx}}'></image>
-  </view>
-  <view class=" margin-20 flex-warp flex-1">
-    <view class="txt-black flex-row">落叶无声给您留言了
-      <view class="margin-left-20 wd  ">未读</view>
-    </view>
-    <view class="h6">小姐姐能便宜点不？</view>
-    <view class="margin-top-5 h6">1小时前</view>
 
 
-  </view>
-  <view class="margin-20  ">
-    <image class='icon-60  margin-top-5' mode='aspectFill'  src='{{uploadpath}}resource/{{res.ipad}}'></image>
-  </view>
-
+<view wx:if='{{chatmember.length==0}}' class='flex-row flex-column'>
+  <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.zanwufabu}}'></image>
+  <view class=''>暂无消息</view>
 </view>
 
-<view class="flex-row flex-center " style='border-bottom:1px solid #E5E5E5'>
-  <view class=" margin-20 ">
-    <image class='icon-40 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.tx}}'></image>
+
+
+
+<navigator   url='/pages/chatroom/chatroom?member_id={{item.id}}&&post_id={{item.chat.product}}&&product_img={{item.chat.tb_product_img}}' wx:for="{{chatmember}}" wx:key="k" wx:for-index="idx" class="flex-row flex-center bg " style='border-bottom:1px solid #E5E5E5'>
+  <view class=" margin-20 " style='margin-right:0'>
+    <image class='icon-40 margin-left-10 margin-top-5' mode='aspectFill' src='{{item.avatarUrl}}'></image>
   </view>
   <view class=" margin-20 flex-warp flex-1">
-    <view class="txt-black flex-row">落叶无声给您留言了
-      <view class="margin-left-20 yd txt-white ">已读</view>
+    <view class="txt-black flex-row h6" >{{item.nickName}}
+    
+      <view wx:if="{{item.chat.isread=='N'&&item.chat.sent_member_id!=memberinfo.id}}" class="margin-left-20 wd  ">未读</view>
+       <view wx:if="{{item.chat.isread=='Y'&&item.chat.sent_member_id!=memberinfo.id}}" class="margin-left-20 yd  ">已读</view>
     </view>
-    <view class="h6">小姐姐能便宜点不？</view>
-    <view class="margin-top-5 h6">1小时前</view>
+    <view class="h6">{{item.chat.msg}}</view>
+    <view class="margin-top-5 h6">{{item.chat.timeduration}}</view>
 
 
   </view>
-  <view class="margin-20  ">
-    <image class='icon-60  margin-top-5' src='{{uploadpath}}resource/{{res.ipad}}'></image>
+  <view class=" margin-right-20">
+     <image class='icon-60  margin-top-5' mode='aspectFill'  src='{{uploadpath}}product/{{item.chat.tb_product_img}}'></image> 
   </view>
 
-</view>
+</navigator>
+
+

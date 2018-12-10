@@ -15,37 +15,41 @@ class Content extends AppBase {
 
     });
   }
-  uploadimg(e) {
+  uploadimg() {
     var that = this;
-    var id = e.currentTarget.id;
-    var photo = [];
     this.Base.uploadImage("product", (ret) => {
-      photo.push(ret);
-   
-      that.Base.setMyData({
-
-        photo
-
-      });
-    }, 3);
+      var images = that.Base.getMyData().images;
+      images.push(ret);
+      that.Base.setMyData({ images });
+    });
   }
-  photo(e) {
-    var photo = e.detail.value;
-    console.log(photo);
-    this.Base.setMyData({
-      photo: e.detail.value
-    })
-  }
+  minusImg(e) {
+    var that = this;
+    var seq = e.currentTarget.id;
+    var images = that.Base.getMyData().images;
+    var imgs = [];
+    for (var i = 0; i < images.length; i++) {
+      if (seq != i) {
+        imgs.push(images[i]);
+      }
+    }
+    that.Base.setMyData({ images: imgs });
+  } 
 
+ 
 
   qwe(e) {
     this.setData({
       index: e.detail.value
     })
+  
     this.Base.setMyData({
       xz:"Y",
       cat_id: this.Base.getMyData().goodslist[e.detail.value].id
     })
+
+
+
   }
 
  
@@ -56,17 +60,32 @@ class Content extends AppBase {
     super.onLoad(options);
     this.setData({
       passwordInputHidden:true,
-      password: 123456,
-      cat_id:"",
      
-      
+      cat_id:"",
+      images: []
+     
     })
   }
   onMyShow() {
     var that = this;
-
     var api = new OrderApi();
+    if (that.Base.options.id!=null)
+    {
+      console.log(66666660);
+   
+      api.goods({ id: that.Base.options.id},(list)=>{
+        this.Base.setMyData({ list, xz: "C", cat_id: list.cat_id});
+        
+
+  })
+    }
+    
+
     api.goodslist({}, (goodslist) => {
+
+      //删除求购商品
+    goodslist.splice(9,1);
+    
       this.Base.setMyData({ goodslist });
     });
   }
@@ -152,19 +171,18 @@ class Content extends AppBase {
  }
 
 
-
   confirm(e) {
     var data = e.detail.value;
     if (data.name == "") {
-      this.Base.info("请输姓名");
+      this.Base.info("请输入宝贝名称");
       return;
     }
     if (data.summary == "") {
       this.Base.info("请输入描述");
       return;
     }
-    if (data.photo == "") {
-      this.Base.info("请上传介绍图片");
+    if (this.Base.getMyData().images.length == 0) {
+      this.Base.info("请至少上传一张图片");
       return;
     }
     if (data.cat_id == "") {
@@ -179,10 +197,11 @@ class Content extends AppBase {
       this.Base.info("请输入原价");
       return;
     }
+    var images = this.Base.getMyData().images;
     var name = this.Base.getMyData().name;
-    var photo = this.Base.getMyData().photo[0];
-    var photo1 = this.Base.getMyData().photo[1];
-    var photo2 = this.Base.getMyData().photo[2];
+    var photo = this.Base.getMyData().images[0];
+   
+    
     var summary = this.Base.getMyData().summary;
     var cat_id = this.Base.getMyData().cat_id;
 
@@ -201,8 +220,8 @@ class Content extends AppBase {
       name: name,
       summary: summary,
       cover: photo,
-      poster: photo1,
-      shareposter:photo2,
+      images: images.join(","),
+      
       status:"A",
       price:price,
       oriprice:price1
@@ -245,5 +264,6 @@ body.summary = content.summary;
 body.price = content.price;
 body.price1 = content.price1 ;
 body.confirm = content.confirm;
+body.minusImg = content.minusImg;
 
 Page(body)

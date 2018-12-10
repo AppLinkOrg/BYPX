@@ -12,7 +12,8 @@ border-bottom:1px solid #E5E5E5
 .rs{
 
 background-color: #E5E5E5;
-border-radius: 10rpx;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+border-radius: 10rpx;   
+width:100rpx;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 
 
 }
@@ -77,4 +78,10 @@ margin-right: 30rpx;
 }
 .ma-1{
   margin-left: 20rpx;
+}
+.aa{
+font-weight: bold;
+   color: #f7b81f;
+   padding-bottom: 10rpx;
+    border-bottom: 1px solid #f7b81f;
 }

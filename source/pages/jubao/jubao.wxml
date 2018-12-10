@@ -4,30 +4,14 @@
     请选择举报原因
   </view>
   <view class='padding-20 flex-warp'>
-    <view class="flex-row  xhx">
-      <view >
-        <image class='icon-20 margin-5 ' src='{{uploadpath}}resource/{{res.jubaoxuanxiangkong}}'></image>
-      </view>
-      <view class="margin-left-10 ">涉嫌欺诈</view>
-    </view>
-    <view class="flex-row  xhx margin-top-20">
-      <view>
-        <image class='icon-20 margin-5 ' src='{{uploadpath}}resource/{{res.jubaoxuanxiangkong}}'></image>
-      </view>
-      <view class="margin-left-10">违规信息</view>
-    </view>
-    <view class="flex-row xhx margin-top-20">
-      <view>
-        <image class='icon-20 margin-5 ' src='{{uploadpath}}resource/{{res.jubaoxuanxiangkong}}'></image>
-      </view>
-      <view class="margin-left-10">广告骚扰</view>
-    </view>
-    <view class="flex-row xhx margin-top-20">
-      <view>
-        <image class='icon-20  margin-5' src='{{uploadpath}}resource/{{res.jubaoxuanxiangkong}}'></image>
-      </view>
-      <view class="margin-left-10">言语辱骂</view>
-    </view>
+    <radio-group class="radio-group" name="alert_id" bindchange="radioChange">
+  <view class='padding-10'  wx:for="{{alerttype}}">
+  
+  <label class="radio">
+    <radio value="{{item.id}}" checked="{{item.checked}}"/>{{item.name}}
+  </label>
+  </view>
+</radio-group>
 
 
   </view>

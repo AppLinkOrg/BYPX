@@ -4,6 +4,14 @@
    border-radius: 50rpx;
   
 }
+.dw{
+
+position:fixed;
+  top:0;
+  right: 0;
+  padding:20rpx;
+
+}
 .top{
 
   background-color: #F6AE4A;

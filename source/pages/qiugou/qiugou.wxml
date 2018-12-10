@@ -1,0 +1,73 @@
+<form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+
+
+
+  <scroll-view scroll-x="true" style='height:300rpx;'>
+    <view class="uploadWrap">
+      <view class='imgbg ' wx:for="{{images}}" wx:key="k" wx:for-index="idx">
+        <image class="" style='width:280rpx;height:280rpx' mode='aspectFill' src='{{uploadpath}}product/{{item}}' bindtap='minusImg' id="{{idx}}"></image>
+      </view>
+      <view class='imgbg_border' bindtap='uploadimg'>
+        <image style='width:280rpx;height:280rpx' class='addimg' mode='aspectFill' src='{{uploadpath}}resource/{{res.tianjiatupian}}'></image>
+      </view>
+    </view>
+  </scroll-view>
+
+
+
+
+  <view class="flex-wrap">
+
+    <view class="gd ">
+      <input placeholder='在此填写想买的宝贝' name='name' bindinput='name' class="margin-20"></input>
+    </view>
+    <view class="gd margin-top-5">
+      <textarea style='width:90%' placeholder="在此描述你想买的宝贝：如品牌、规格、成色" name='summary' bindinput='summary' class="margin-20"></textarea>
+    </view>
+
+
+
+    <view class="gd margin-top-5 flex-row">
+      <view class="flex-1  padding-20" name="cat_id" wx:if="{{xz!='Y'}}">求购商品</view>
+      <view class="flex-1 margin-10" wx:if="{{xz=='Y'}}">{{goodslist[index].name}}</view>
+      <view class="margin-10">
+
+      </view>
+
+    </view>
+
+    <input hidden='true' name="cat_id" value="{{cat_id}}"></input>
+
+
+
+
+
+
+
+
+
+
+
+
+    <view class="flex-wrap gd">
+      <view class="margin-20 flex-row">想多少钱买?</view>
+      <view class="margin-20 txt-gray  h4 flex-row " style='border-bottom:1px solid #DDDDDD'>
+        <view class="margin-top-20" style='width:200rpx'>购买价格￥</view>
+        <input placeholder='' type='digit' style='padding:20rpx;width:80%;direction:rtl' cursor-spacing="150" name='price' bindinput='price' class="margin-left:20rpx"></input>
+
+
+
+      </view>
+
+     
+
+    </view>
+
+
+
+
+    <button class="text-center  fabu" form-type='submit' style=''>发布</button>
+
+  </view>
+
+</form>

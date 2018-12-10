@@ -1,49 +1,157 @@
+<!-- 未认证时 -->
+<form wx:if="{{rzlist.status==null||rzlist.status=='N'||rzlist.status=='D'}}" bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+  <view class="whole">
 
-<form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
-<view class="whole">
+    <view class="flex-warp  flex-center" style='width:90%'>
+      <view class="flex-row br">
+        <view class="margin-20">
+          <image class='icon-20  margin-top-5' src='{{uploadpath}}resource/{{res.xuehao}}'></image>
+        </view>
 
-  <view class="flex-warp  flex-center" style='width:90%'>
-
-    <view class="flex-row br">
-      <view class="margin-20">
-        <image class='icon-20  margin-top-5' src='{{uploadpath}}resource/{{res.xingming}}'></image>
+        <view class="margin-20">
+          <input placeholder="学号" name="xuehao" val="{{xuehao}}" bindinput='xuehao'></input>
+        </view>
       </view>
-      <view class="margin-20">
-        <input placeholder="学号" name="xuehao" val="{{xuehao}}" bindinput='xuehao'></input>
+      <view class="flex-row br">
+        <view class="margin-20">
+          <image class='icon-20  margin-top-5' src='{{uploadpath}}resource/{{res.xingming}}'></image>
+        </view>
+        <view class="margin-20">
+          <input placeholder="姓名" name="name" val="{{name}}" bindinput='name'></input>
+
+        </view>
+
+
+
       </view>
+      
+      <view class="flex-row br">
+        <view class="margin-20">
+          <image class='icon-20  margin-top-5' src='{{uploadpath}}resource/{{res.shouji}}'></image>
+        </view>
+
+        <view class="margin-20">
+          <input placeholder="手机号" name="shouji" val="{{shouji}}" bindinput='shouji'></input>
+        </view>
+      </view>
+      <view class="flex-row br">
+
+
+        <view class="margin-20">
+          <image class='icon-20  margin-top-5' src='{{uploadpath}}resource/{{res.louhao}}'></image>
+        </view>
+
+        <view class="margin-20">
+          <input placeholder="送货楼号" name="louhao" val="{{louhao}}" bindinput='louhao'></input>
+        </view>
+      </view>
+      <view class="margin-20 ">上传资料</view>
+      <view class="flex-row">
+
+
+
+
+
+        <view class='  sczp margin-top-20  padding-10' bindtap='uploadimg' style='width:300rpx;height:350rpx'>
+          <input hidden='true' name="photo" val="1111"></input>
+          <image wx:if='{{photo!=undefined}}' style='width:300rpx;height:350rpx' mode='aspectFill' class='sczp' src='{{uploadpath}}student/{{photo}}'></image>
+
+          <view class='img flex-row flex-column padding-top-100' style='line-height' wx:if='{{photo==undefined}}'>
+            <image class='icon-60 margin-top-60 ' src='{{uploadpath}}resource/{{res.fabugray}}'></image>
+            <view class=" margin-top-20 h6">请上传学生证或者校园卡</view>
+          </view>
+
+        </view>
+
+
+        <image class=' sczp margin-top-20   padding-10 margin-left-20 ' mode='aspectFill' style='width:300rpx;height:350rpx' src='{{uploadpath}}resource/{{res.tx}}'></image>
+
+
+
+
+
+
+
+
+
+
+
+
+      </view>
+      <view class="h6 margin-top-20">为保护您与其他用户的权益，我们将尽快进行人工身份审核，并保证绝不会泄露您任何个人信息</view>
+
+      <button class="text-center  fabu" form-type='submit' style=''>提交审核</button>
     </view>
-    <view class="flex-row br">
-      <view class="margin-20">
-        <image class='icon-20  margin-top-5' src='{{uploadpath}}resource/{{res.xuehao}}'></image>
+  </view>
+</form>
+
+<!-- 认证完成 -->
+<form wx:if="{{rzlist.status=='I'}}" bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+  <view class="whole ">
+
+    <view class="flex-warp  flex-center" style='width:90%'>
+
+      <view class="flex-row br">
+        <view class="margin-20">
+          <image class='icon-20  margin-top-5' src='{{uploadpath}}resource/{{res.xuehao}}'></image>
+        </view>
+        <view class="margin-20">
+          <input placeholder="学号" disabled='false' value="{{rzlist.studentid}}" name="xuehao" val="{{xuehao}}" bindinput='xuehao'></input>
+        </view>
       </view>
-      <view class="margin-20">
-         <input placeholder="姓名" name="name" val="{{name}}" bindinput='name'></input> 
+      <view class="flex-row br">
+        <view class="margin-20">
+          <image class='icon-20  margin-top-5' src='{{uploadpath}}resource/{{res.xingming}}'></image>
+        </view>
+        <view class="margin-20">
+          <input placeholder="姓名" disabled='false' value="{{rzlist.name}}" name="name" val="{{name}}" bindinput='name'></input>
+
+        </view>
+
         
       </view>
-    </view>
-    <view class="margin-20 ">上传资料</view>
-    <view class="flex-row">
 
 
-
-
-
-
- <input hidden='true' name="photo" val="{{photo}}"  ></input>
-      
-      <view class='  sczp margin-top-20  padding-10' bindtap='uploadimg' style='width:300rpx;height:350rpx'>
-
-  <image wx:if='{{photo!=undefined}}' style='width:300rpx;height:350rpx' mode='aspectFill' class='sczp'  src='{{uploadpath}}student/{{photo}}'></image>
-
-        <view class='img flex-row flex-column padding-top-100' style='line-height' wx:if='{{photo==undefined}}'>
-          <image class='icon-60 margin-top-60 ' src='{{uploadpath}}resource/{{res.fabugray}}'></image>
-          <view class=" margin-top-20 h6">上传学生证或者校园卡</view>
+ <view class="flex-row br">
+        <view class="margin-20">
+          <image class='icon-20  margin-top-5' src='{{uploadpath}}resource/{{res.shouji}}'></image>
         </view>
-      
+        <view class="margin-20">
+          <input placeholder="手机号" disabled='false' value="{{rzlist.shouji}}" name="shouji" val="{{shouji}}" bindinput='shouji'></input>
+        </view>
       </view>
-   
+      <view class="flex-row br">
+        <view class="margin-20">
+          <image class='icon-20  margin-top-5' src='{{uploadpath}}resource/{{res.louhao}}'></image>
+        </view>
+        <view class="margin-20">
+          <input placeholder="送货楼号" disabled='false' value="{{rzlist.louhao}}" name="louhao" val="{{louhao}}" bindinput='louhao'></input>
 
-      <image class=' sczp margin-top-20   padding-10 margin-left-20 ' mode='aspectFill' style='width:300rpx;height:350rpx' src='{{uploadpath}}resource/{{res.tx}}'></image>
+        </view>
+
+        
+      </view>
+
+      <view class="margin-20 ">认证资料</view>
+      <view class="flex-row">
+
+
+
+
+
+
+        <input hidden='true' name="photo" val="{{photo}}"></input>
+
+        <view class='  sczp margin-top-20  padding-10' style='width:300rpx;height:350rpx'>
+
+          <image style='width:300rpx;height:350rpx' mode='aspectFill' class='sczp' src='{{uploadpath}}student/{{rzlist.studentimg}}'></image>
+
+
+
+        </view>
+
+
+        <image class=' sczp margin-top-20   padding-10 margin-left-20 ' mode='aspectFill' style='width:300rpx;height:350rpx' src='{{uploadpath}}resource/{{res.tx}}'></image>
 
 
 
@@ -54,12 +162,16 @@
 
 
 
+
+
+      </view>
+      <view class="h3 txt-red margin-top-20 text-center " style='margin-top:150rpx'>恭喜您认证成功</view>
 
 
     </view>
-    <view class="h6 margin-top-20">为保护您与其他用户的权益，我们将尽快进行人工身份审核，并保证绝不会泄露您任何个人信息</view>
-
-    <button class="text-center  fabu" form-type='submit' style=''>提交审核</button>
   </view>
-</view>
 </form>
+<!-- 审核中 -->
+<view wx:if="{{rzlist.status=='A'}}" class='padding-20'>
+  <view class='h4 txt-primary txt-bold txt-center'>您的认证申请已提交，请耐心等待审核！</view>
+</view>

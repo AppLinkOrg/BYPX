@@ -1,22 +1,11 @@
 <!-- 轮播 -->
 <swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='width:750rpx;height:700rpx;'>
-  <swiper-item>
-    <view>
-      <image src='{{uploadpath}}product/{{imags[0]}}' style='width:750rpx;height:700rpx;' mode="aspectFill"></image>
-    </view>
-  </swiper-item>
+  <block wx:for="{{list.images}}" wx:key="k">
+        <swiper-item>
+          <image  style='width:750rpx;height:700rpx;' src="{{uploadpath}}product/{{item}}" mode='aspectFill'  id="{{item}}"></image>
+        </swiper-item>
+      </block>
 
-  <swiper-item>
-    <view>
-      <image src='{{uploadpath}}product/{{imags[1]}}' style='width:750rpx;height:700rpx;' mode="aspectFill"></image>
-    </view>
-  </swiper-item>
-  <swiper-item>
-    <view>
-      <image src='{{uploadpath}}product/{{imags[2]}}' style='width:750rpx;height:700rpx;' mode="aspectFill"></image>
-    </view>
-  </swiper-item>
-  
 </swiper>
 <!-- 商品资料部分 -->
 <view class=" flex-wrap  gd">
@@ -27,7 +16,12 @@
 
 
 
-    <navigator url="/pages/jubao/jubao" class="margin-right-10">举报</navigator>
+    <navigator url="/pages/jubao/jubao?id={{list.id}}" class="margin-right-10 ">
+    
+    <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.jubao}}'></image>
+    
+    
+    </navigator>
   </view>
   <view class="margin-top-20 flex-row flex-center">
     <view class=" flex-row flex-bottom">
@@ -48,72 +42,106 @@
   </view>
   <view class="flex-7 flex-wrap text-left">
     <view class="txt-black">{{userlist.nickName}}</view>
-    <view>{{userlist.updated_date}}</view>
+    <view>{{list.created_date}}</view>
   </view>
-  
+
 
 
 </view>
 <view class="flex-wrap gd margin-top-5 flex-center ">
   <!-- 留言部分 -->
-  <view class="flex-row">
-    <view class="flex-1 txt-black padding-20">留言(2):</view>
-    <view class="margin-20" style='color:#FFB400'>留言</view>
+  <view class="flex-row ">
+    <view class="flex-1 txt-black padding-20">留言({{commentlist.length}}):</view>
+    <view class="margin-20" style='color:#FFB400' bindtap='ly'>留言</view>
   </view>
   <!-- 留言 -->
-  <view>
-    <view class=" flex-row flex-center text-center gd">
+<!-- <view wx:if='{{commentlist.length==0}}' class='flex-row flex-column' >
+  <image class='null_icon1 padding-40 ' src='{{uploadpath}}resource/{{res.zhaobudao}}'></image>
+  <view class=''>暂无留言</view>
+</view> -->
+
+
+  
+  <view wx:for="{{commentlist}}" wx:for-index="idx" wx:key="k" class="dl">
+    <view class=" flex-row flex-center text-center  ">
       <view class="flex-1 margin-20">
-        <image class='icon-40 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.tx}}'></image>
+        <image class='icon-40 margin-left-10 margin-top-5' src='{{item.member_avatarUrl}}'></image>
       </view>
-      <view class="flex-3 flex-wrap text-left">
-        <view class="txt-black">从你的全世界路过</view>
-        <view>2018.8.1 12:38</view>
+      <view class="flex-4 flex-wrap text-left">
+        <view class="txt-black">{{item.member_id_name}}</view>
+        <view>{{item.comment_time_formatting}}</view>
       </view>
-      <view class="flex-4"></view>
+      <view class="flex-3"></view>
 
 
     </view>
     <view class=" flex-row flex-center text-left gd">
       <view class="flex-2 "></view>
-      <view class="flex-8 h5 txt-black margin-bottom-20">这家公司的商业模式存在很大的问题。市场也在慢慢萎缩中，我不太看好。</view>
+      <view class="flex-8 h5 txt-black margin-bottom-20">{{item.comment}}</view>
       <view class="flex-1"></view>
     </view>
   </view>
-  <view>
-    <view class=" flex-row flex-center text-center gd">
-      <view class="flex-1 margin-20">
-        <image class='icon-40 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.tx}}'></image>
-      </view>
-      <view class="flex-3 flex-wrap text-left">
-        <view class="txt-black">小了白了兔</view>
-        <view>2018.8.1 12:38</view>
-      </view>
-      <view class="flex-4"></view>
-
-
-    </view>
-    <view class=" flex-row flex-center text-left gd">
-      <view class="flex-2 "></view>
-      <view class="flex-8 h5 txt-black margin-bottom-20">这家公司的商业模式存在很大的问题。市场也在慢慢萎缩中，我不太看好。</view>
-      <view class="flex-1 "></view>
-    </view>
-  </view>
 
 </view>
-<!-- 我要购买 --> 
+<!-- 我要购买 -->
 <view class="flex-row gd text-center margin-top-5 flex-center ">
-<view class="flex-2 padding-20 flex-center flex-row">
-<view><image class='icon-17 margin-left-10 ' style='margin-top:5rpx ' src='{{uploadpath}}resource/{{res.liulangray}}'></image></view>
-<view class="margin-left-10">浏览</view></view>
-<view class="flex-2 padding-20 flex-center flex-row">
-<view><image class='icon-17 margin-left-10 ' style='margin-top:5rpx ' src='{{uploadpath}}resource/{{res.shoucanggray}}'></image></view>
-<view class="margin-left-10">收藏</view></view>
-<view class="flex-2 padding-20 flex-center flex-row">
-<view><image class='icon-17 margin-left-10 ' style='margin-top:5rpx ' src='{{uploadpath}}resource/{{res.fenxian}}'></image></view>
-<view class="margin-left-10">分享</view></view>
-<view class="flex-3 margin-right-20 txt-balck gm" style=''>
-我要购买
+  <view class="flex-2 padding-20 flex-center flex-row">
+    <view>
+      <image class='icon-17 margin-left-10 ' style='margin-top:13rpx ' src='{{uploadpath}}resource/{{res.liulang}}'></image>
+    </view>
+    <view class="margin-left-10">{{list.viewcount}}</view>
+  </view>
+  <view class="flex-2 padding-20 flex-center flex-row">
 
+
+
+
+
+
+
+
+
+    <view id='{{list.id}}' class="flex-row" bindtap='fav'>
+      <image class='icon-17 margin-left-10 ' wx:if='{{isfav==0}}' style='margin-top:8rpx ' src='{{uploadpath}}resource/{{res.shoucanggray}}'></image>
+      <image class='icon-17 margin-left-10 ' wx:if='{{isfav>0}}' style='margin-top:8rpx ' src='{{uploadpath}}resource/{{res.	shoucangcolor}}'></image>
+       <view  class="margin-left-10  ysc" wx-if='{{isfav>0}}'>{{list.favcount}}</view>
+    <view class="margin-left-10  ysc" wx-if='{{isfav==0}}'>收藏</view>
+    </view>
+   
+  </view>
+  <view class="flex-2 padding-20 flex-center flex-row">
+    <view>
+      <image open-type='share' class='icon-17 margin-left-10 ' style='margin-top:13rpx ' src='{{uploadpath}}resource/{{res.fenxian}}'></image>
+    </view>
+     <view open-type='share'  class=' text-center '>分享
+        <button open-type='share' class='clear-button' style='width:100rpx;height:100rpx;position:absolute;margin-top:-80rpx;margin-left:-30rpx;'></button>
+      </view>
+  </view>
+  <navigator url='/pages/chatroom/chatroom?member_id={{userlist.id}}&post_id={{list.id}}&product_img={{list.cover}}' class="flex-3 margin-right-20 txt-balck gm" style=''>
+    我要购买
+
+  </navigator>
 </view>
-</view>
+
+<action-sheet hidden="{{passwordInputHidden}}" bindchange="passwordInputHidden">
+  <form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+    <view class="flex-wrap">
+
+
+
+      <view class="margin-20 flex-row ">
+
+        <view class="flex-5 flex-row ">
+
+          <input placeholder="留言" name="liuyan" bindinput='liuyan' class="dl"  cursor-spacing="20" style=' padding:20; margin-left:20rpx;width:100%;margin-top:20rpx' value='{{inputValue}}'></input>
+
+        </view>
+
+        <button class="text-center  fabu flex-1" form-type='submit' style=''>发布</button>
+      </view>
+
+    </view>
+
+  </form>
+
+</action-sheet>

@@ -13,13 +13,26 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ tab: 0 });
+   
+    this.Base.setMyData({ tab:0 });
+    
+   
   }
 
   onMyShow() {
     var that = this;
-    //查询首页广告
+    //查询首页广告indexnotice
     var instapi = new InstApi();
+
+
+    instapi.indexnotice({}, (tonzhilist) => {
+      this.Base.setMyData({ tonzhilist });
+    });
+
+    instapi.instxuexiao({}, (xuexiaolist) => {
+      this.Base.setMyData({ xuexiaolist });
+    });
+
     instapi.indexbanner({}, (indexbanner) => {
       this.Base.setMyData({ indexbanner });
     });
@@ -29,11 +42,11 @@ class Content extends AppBase {
       this.Base.setMyData({ goodslist });
     });
     //查询最新发布
-    api.list({ inhome: "Y", isrecomm: "Y", }, (list) => {
+    api.list({ inhome:"Y" }, (list) => {
       this.Base.setMyData({ list });
     });
     //查询热门推荐
-    api.list({ inhome: "Y", isrecomm: "Y",  orderby:"viewcount desc" }, (list1) => {
+    api.list({ inhome: "Y", isrecomm: "Y",  }, (list1) => {
       this.Base.setMyData({ list1 });
     });
 
@@ -60,10 +73,10 @@ class Content extends AppBase {
 
       }
       //查询热门推荐
-      api.list({ inhome: "Y", isrecomm: "Y",  }, (list) => {
+      api.list({ inhome: "Y"  }, (list) => {
         this.Base.setMyData({ list });
       });
-      api.list({ inhome: "Y", isrecomm: "Y",  orderby: "viewcount desc" }, (list1) => {
+      api.list({ inhome: "Y", isrecomm: "Y",}, (list1) => {
         this.Base.setMyData({ list1 });
       });
     });

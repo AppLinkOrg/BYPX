@@ -1,0 +1,64 @@
+<form bindsubmit='confirm'>
+<view class="flex-wrap  flex-center gd">
+  <view class="flex-row" style='border-bottom:1px solid #E5E5E5' >
+
+    <view class="margin-20 txt-black flex-1">头像</view>
+    <view>
+      <image class='icon-20 margin-20 ' src='{{memberinfo.avatarUrl}}'></image>
+    </view>
+    <input name="photo" value='{{photo}}' class='fullimg' hidden='true'></input>
+    <view>
+     
+    </view>
+  </view>
+
+  <view class="flex-row" style='border-bottom:1px solid #E5E5E5'>
+
+    <view class="margin-20 txt-black flex-1">昵称</view>
+    <view class="margin-20">{{memberinfo.nickName}}</view>
+    <view>
+    
+    </view>
+  </view>
+  <view class="flex-row" style='border-bottom:1px solid #E5E5E5'>
+
+    <view class="margin-20 txt-black flex-1">性别</view>
+    <view class="margin-20">
+      <view wx:if="{{memberinfo.gender==1}}">男</view>
+      <view wx:if="{{memberinfo.gender==2}}">女</view>
+    </view>
+  </view>
+
+
+  <navigator wx:if="{{rzlist.status=='N'||rzlist.status==null||rzlist.status=='D'}}" url="/pages/certification/certification" class="flex-row" style='border-bottom:1px solid #E5E5E5'>
+
+    <view class="margin-20 txt-black flex-1">校园认证</view>
+    <view class="margin-20">未认证</view>
+    <view>
+  
+    </view>
+  </navigator>
+
+  <navigator wx:if="{{rzlist.status=='A'}}" url="/pages/certification/certification" class="flex-row" style='border-bottom:1px solid #E5E5E5'>
+
+    <view class="margin-20 txt-black flex-1">校园认证</view>
+    <view class="margin-20">审核中</view>
+    <view>
+     
+    </view>
+  </navigator>
+  <navigator wx:if="{{rzlist.status=='I'}}" url="/pages/certification/certification" class="flex-row" style='border-bottom:1px solid #E5E5E5'>
+
+    <view class="margin-20 txt-black flex-1">校园认证</view>
+    <view class="margin-20">已认证</view>
+    <view>
+      
+    </view>
+  </navigator>
+
+
+
+</view>
+
+
+</form>

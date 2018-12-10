@@ -1,4 +1,4 @@
-// pages/content/content.js
+ // pages/content/content.js
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
@@ -27,19 +27,19 @@ class Content extends AppBase {
     var that = this;
     var api = new OrderApi();
     api.list({ cat_id: that.Base.options.id, orderby: "favcount desc" }, (list) => {
-      this.Base.setMyData({ list, orderby: "favcount", price: "N", favcount: "Y", viewcount: "N" });
+      this.Base.setMyData({ list, orderby: "favcount", price: "s", favcount: "Y", viewcount: "N" });
     });
 
   }
   //收藏从低到高
-  favcountdesc() {
-    var that = this;
-    var api = new OrderApi();
-    api.list({ cat_id: that.Base.options.id,  orderby: "favcount " }, (list) => {
-      this.Base.setMyData({ list, orderby: "favcount desc", favcount: "N", price: "N", viewcount: "N" });
-    });
+  // favcountdesc() {
+  //   var that = this;
+  //   var api = new OrderApi();
+  //   api.list({ cat_id: that.Base.options.id,  orderby: "favcount " }, (list) => {
+  //     this.Base.setMyData({ list, orderby: "favcount desc", favcount: "N", price: "N", viewcount: "N" });
+  //   });
 
-  }
+  // }
 
 
   //价格从高到低
@@ -65,7 +65,7 @@ class Content extends AppBase {
     var that = this;
     var api = new OrderApi();
     api.list({ cat_id: that.Base.options.id,  orderby: "viewcount desc" }, (list) => {
-      this.Base.setMyData({ list, orderby: "viewcount desc", viewcount: "Y", price: "N", favcount: "N"});
+      this.Base.setMyData({ list, orderby: "viewcount desc", viewcount: "Y", price: "s", favcount: "N"});
     });
 
   }
@@ -74,7 +74,7 @@ class Content extends AppBase {
     var that = this;
     var api = new OrderApi();
     api.list({ cat_id: that.Base.options.id,  orderby: "viewcount " }, (list) => {
-      this.Base.setMyData({ list, orderby: "viewcount", viewcount: "N", price: "N", favcount: "N" });
+      this.Base.setMyData({ list, orderby: "viewcount", viewcount: "N", price: "s", favcount: "N" });
     });
 
   }
@@ -83,7 +83,7 @@ class Content extends AppBase {
     var that = this;
     var api = new OrderApi();
     api.list({ cat_id: that.Base.options.id,  }, (list) => {
-      this.Base.setMyData({ list, viewcount: "N", price: "N", favcount: "N"});
+      this.Base.setMyData({ list, viewcount: "N", price: "s", favcount: "N"});
     });
 
   }
@@ -112,10 +112,16 @@ class Content extends AppBase {
 
       }
       //查询热门推荐
-      
+      if (this.Base.getMyData().orderby=="")
+      {
+        api.list({ cat_id: that.Base.options.id, }, (list) => {
+          this.Base.setMyData({ list, orderby: "" });
+        });
+      }
+      else{
       api.list({ cat_id: that.Base.options.id,  orderby: this.Base.getMyData().orderby}, (list) => {
         this.Base.setMyData({ list });
-      });
+      });}
 
     });
 

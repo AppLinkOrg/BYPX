@@ -1,44 +1,42 @@
 <!--pages/mycollection/mycollection.wxml-->
-<view  wx:for="{{list}}" wx:for-index="idx"   wx:if="{{idx<lists}}" class="flex-row flex-center">
-  <view class="flex-1 margin-20 sc flex-warp" style='background:url({{uploadpath}}resource/{{res.ceshi3}})'>
-    <view class="xm flex-warp" style='margin-top:400rpx'>
-      <view class="margin-10 h6" style='height:70rpx'>{{list[idx].id}}</view>
+<view wx:if='{{list.length==0}}' class='flex-row flex-column'>
+  <image class='null_icon padding-40 ' src='{{uploadpath}}resource/{{res.zhaobudao}}'></image>
+  <view class=''>暂无收藏</view>
+</view>
+
+
+
+
+<view class="flex-warp" style='border:width:100%;display: flex;flex-wrap: wrap;margin-left-5 '>
+  <view wx:for="{{list}}" wx:key="k" wx:for-index='idx' class=" margin-10 sc flex-warp">
+
+
+    <navigator url='/pages/details/details?id={{item.product_id}}' style='height:400rpx'>
+
+      <image style='width:100%; height:390rpx;' class=' margin-top-5' mode='aspectFill' src='{{uploadpath}}product/{{item.product_cover}}'></image>
+
+    </navigator>
+    <view class="xm flex-warp ">
+      <view class="margin-10 h5 txt-bold" style='height:70rpx'>{{item.product_name}}</view>
 
       <view class="margin-10 flex-row" style='border-bottom:1px solid  #f3f3f3 '>
-        <view class="flex-1  h4" style='color:#E6232A'>￥588</view>
-        <view class="h6 margin-top-5">浏览 50</view>
+        <view class="flex-1  h4" style='color:#E6232A'>￥{{item.product_price}}</view>
+        <view class="h6 margin-top-5">浏览 {{item.viewcount}}</view>
       </view>
+
       <view class="flex-row flex-center">
-        <view class="flex">
-          <image class='icon-30 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.tx}}'></image>
+        <view class="flex" style='width:25%'>
+          <image class='icon-30 margin-left-10 margin-top-5' src='{{item.fabu_photo0}}'></image>
         </view>
-        <view class="flex h6 margin-10 txt-black " style=''>叶落无声</view>
-        <view class="flex h6 padding-10 txt-black" style='border:1px solid black'>取消收藏</view>
+        <view class="flex h6 margin-10 txt-black " style='width:38%'>{{item.fabu_name}}</view>
+
+        <view id="{{item.product_id}}" class="flex h6 padding-10 text-center txt-black" style='border:1px solid black;width:37%' bindtap='quxiao'>取消收藏</view>
       </view>
 
     </view>
-
   </view>
 
- <view class="flex-1 margin-20 sc flex-warp" style='background:url({{uploadpath}}resource/{{res.	ceshi3}})'>
-    <view class="xm flex-warp" style='margin-top:400rpx'>
-      <view class="margin-10 h6" style='height:70rpx'>港行iPad2，16GWi-Fi版，白色</view>
 
-      <view class="margin-10 flex-row" style='border-bottom:1px solid  #f3f3f3 '>
-        <view class="flex-1  h4" style='color:#E6232A'>￥588</view>
-        <view class="h6 margin-top-5">浏览 50</view>
-      </view>
-      <view class="flex-row flex-center">
-        <view class="flex">
-          <image class='icon-30 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.tx}}'></image>
-        </view>
-        <view class="flex h6 margin-10 txt-black " style=''>叶落无声</view>
-        <view class="flex h6 padding-10 txt-black" style='border:1px solid black'>取消收藏</view>
-      </view>
-
-    </view>
-
-  </view>
 
 
 </view>

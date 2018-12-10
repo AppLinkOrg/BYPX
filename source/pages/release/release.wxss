@@ -22,6 +22,6 @@ background-size: cover;
 padding-top:20rpx;
 padding-bottom:20rpx;
 background-color: #F6Ae4A;
-color: white
+color: white;
 
 }

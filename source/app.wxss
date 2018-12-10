@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import "wxParse/wxParse.wxss";
+/* 测试 */
 
 page{
   background: white;
@@ -26,6 +27,10 @@ page{
   background-color: transparent;
   border: 0rpx red solid;
   border-color:red;
+}
+.ceshi{
+
+  border:1px solid red;
 }
 .clear-button::after {
   border: 0;

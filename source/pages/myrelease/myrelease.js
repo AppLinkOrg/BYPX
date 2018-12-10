@@ -72,6 +72,24 @@ class Content extends AppBase {
       tab: e.currentTarget.id
     });
   }
+  shanchu(e){
+
+
+    console.log(e.currentTarget.id);
+    var api = new OrderApi();
+    api.removeproduct({ idlist: e.currentTarget.id},(qqq)=>{
+      api.list({ member_id: this.Base.getMyData().memberinfo.id }, (list) => {
+        this.Base.setMyData({ list });
+      });
+      api.list1({ member_id: this.Base.getMyData().memberinfo.id }, (list1) => {
+        this.Base.setMyData({ list1 });
+
+      });
+    
+
+    })
+
+  }
   xj(e){
     console.log(e.currentTarget.id);
     var list = this.Base.getMyData().list[e.currentTarget.id];
@@ -113,5 +131,5 @@ body.onMyShow = content.onMyShow;
 body.changetab = content.changetab;
 body.shangjia= content.shangjia;
 body.xj=content.xj;
-
+body.shanchu = content.shanchu;
 Page(body)

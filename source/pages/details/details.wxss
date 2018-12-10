@@ -9,10 +9,24 @@
 border-bottom:1px solid #E5E5E5
 
 }
+.topobj{
+  width: 100vw;
+  height: 74.4vw;
+}
 .rs{
 
 background-color: #E5E5E5;
 border-radius: 10rpx;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+
+}
+.null_icon1{
+
+
+  height: 200rpx;
+  width: 240rpx;
+  
+  margin-left: 20rpx;
 
 
 }

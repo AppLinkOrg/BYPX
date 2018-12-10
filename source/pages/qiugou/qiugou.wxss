@@ -1,0 +1,268 @@
+.top{
+  background-color:#F6AE4A;
+}
+page {
+  background-color: #f3f3f3;
+}
+.gd{
+ background-color: white;
+
+
+}
+.uploadWrap{
+  height:300rpx; width:100%; display: flex; display: -webkit-box; flex-direction: column
+
+}
+
+.imgbg{
+  width: 300rpx;
+  height: 300rpx;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+}
+.imgbg_border{
+  width: 300rpx;
+  height: 300rpx;
+  border:2rpx rgba(211, 211, 211, 0.5) solid;
+  margin-top: 10rpx;
+}
+.addimg{
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+
+}
+
+
+
+
+.fabu{
+
+color:black;
+
+background-color: #F6AE4A;
+margin-top:30rpx;
+border-radius: 10rpx
+}
+.aa{
+font-weight: bold;
+   color: #f7b81f;
+}
+.search{
+margin-right: 30rpx;
+
+ 
+  background-color: white;
+    border:none;
+     border-radius: 50rpx;
+    
+   margin-bottom: 20rpx
+}
+.search{
+  
+  border-radius: 25rpx;
+  background-color: white;
+}
+.search_icon{
+  height:40rpx;
+  width:40rpx;
+}
+.Mid{
+  height: 150rpx;
+}
+.mid1{
+  background:#F6511D;
+  border-radius:10rpx;
+}
+.mid2{
+  background:#FFB400;
+  border-radius:10rpx;
+}
+.evaluation{
+  background-color: #2699EC;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.Under{
+  margin-top: 50rpx;
+  border-bottom: 1rpx solid rgb(233, 231, 231);
+}
+.phone{
+  border-radius: 10rpx;
+  box-shadow: 1px 1px 7px rgb(231, 228, 228);
+}
+.icon{
+  width: 110rpx;
+  height: 180rpx;
+}
+.column{
+  align-content: center;
+  flex-direction:column;
+}
+.ma-0{
+  margin-left: 20rpx;
+}
+.ma-1{
+  margin-left: 20rpx;
+}
+
+
+
+.popup-memu {
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid #dedbd5;
+    border-bottom: 1px solid #eee;
+    display: block;
+}
+ 
+.line {
+    background-color: #eee;
+    margin-left: 10px;
+    height: 1px;
+    margin-right: 10px;
+}
+ 
+.popup-memu {
+    height: 50px;
+    font-size: 15px;
+    line-height: 50px;
+    border-bottom: 1px solid #eee;
+}
+ 
+.payMode {
+    display: flex;
+    background: #fff;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+}
+ 
+.payMode image {
+    width: 30px;
+    height: 30px;
+    margin-left: 18px;
+    margin-right: 10px;
+}
+ 
+.sheet-content {
+    background-color: #fff;
+    padding: 0 15rpx;
+}
+/* 键盘 */
+.password-input {
+    display: flex;
+    width: 660rpx;
+    border: 1px solid #ddd;
+    margin: 0 auto;
+    margin-top: 50rpx;
+    background-color: #fff;
+    border-radius: 3px;
+}
+ 
+.password-input view {
+    width: 110rpx;
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-right: 1px solid #ccc;
+}
+ 
+.password-input view:nth-child(6) {
+    border-right: none;
+}
+ 
+.password-input view text {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #333;
+}
+ 
+.tips {
+    font-size: 28rpx;
+    text-align: center;
+    margin-top: 5px;
+}
+ 
+.tips text {
+    color: #c30;
+}
+ 
+.keyboard {
+  margin-top:50rpx;
+    width: 100%;
+    display: flex;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+  
+}
+ 
+.keyboard .number {
+    display: flex;
+    width: 570rpx;
+    flex-wrap: wrap;
+}
+ 
+.keyboard .number view {
+    width: 190rpx;
+    height: 120rpx;
+    line-height: 120rpx;
+    text-align: center;
+    font-size: 46rpx;
+    font-weight: bold;
+    box-sizing: border-box;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+ 
+.keyboard .ctr-btn {
+    width: 180rpx;
+}
+ 
+.keyboard .ctr-btn view {
+    height: 240rpx;
+    line-height: 240rpx;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+}
+ 
+.keyboard .ctr-btn view .iconfont {
+    font-size: 44rpx !important;
+    color: #c30;
+}
+ 
+.keyboard .ctr-btn view:nth-child(2) {
+    font-size: 46rpx;
+    color: #c30;
+}
+ 
+.keyboard .active {
+    background-color: #e4e7ed;
+}
+ 
+.activity {
+    background-color: #fff;
+    padding: 25rpx 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24rpx;
+    border-bottom: 1px solid #f6f6f6;
+}
+ 
+.activity.activity-item {
+    font-size: 26rpx;
+}
+ 
+.arrows-right {
+    width: 30rpx;
+    height: 30rpx;
+}
+ 
+.arrows-right.active {
+    transform: rotate(270deg);
+}
+

@@ -1,22 +1,22 @@
-<view class="flex-row top">
-  <view class="flex-1 flex-row">
+<view class="flex-row top ">
+  <view class=" flex-row margin-top-20">
     <view class="flex-center padding-10 ">
       <image class='icon-10 margin-left-20' src='{{uploadpath}}resource/{{res.xia}}'></image>
     </view>
-    <view class=" padding-10 txt-black flex-center  flex-1">深圳大学</view>
+    <text class='padding-10 txt-black h5' style='width:200rpx'>{{xuexiaolist[0].name}}</text>
   </view>
   <!-- 搜索 -->
-  <navigator url='/pages/search/search' class='flex-2 search flex-row padding-10' style=''>
+  <navigator url='/pages/search/search' class=' search flex-row padding-5  margin-top-20' style='width:450rpx'>
     <view>
-      <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.sousuogray}}'></image>
+      <image class='icon-17 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.sousuogray}}'></image>
     </view>
-    <view class="margin-left-10">搜索商品</view>
+    <view class="margin-left-10 h5">搜索商品</view>
   </navigator>
 </view>
 <view>
   <!-- 轮播 -->
   <swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='width:750rpx;height:280rpx;'>
-    <swiper-item wx:for="{{indexbanner}}" wx:key="k">
+    <swiper-item wx:for="{{indexbanner}}" id="{{uploadpath}}indexbanner/{{item.haibao}}" wx:key="k" bindtap="viewPhoto">
       <view>
         <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:280rpx;' mode="aspectFill"></image>
       </view>
@@ -31,8 +31,19 @@
     </view>
   </view>
   <view class="txt-black margin-left-20 margin-right-20">:</view>
-  <view class="txt-black">轰趴馆周年庆活动火热报名中</view>
+  <view>
+    <swiper class="txt-black swiper_container" vertical="true" autoplay="false" circular="true" interval="3000">
+
+      <swiper-item wx:for="{{tonzhilist}}" wx:key="k" wx:for-index="idx">
+        <view class="">{{item.summary}}</view>
+      </swiper-item>
+    </swiper>
+  </view>
 </view>
+
+
+
+
 <!-- 导航 -->
 <view>
   <view class='flex-row flex-center text-center gd margin-top-5' style='width:100%;height:180prx'>
@@ -68,68 +79,107 @@
 
 </view>
 <!-- 热门推荐-->
-<view wx:for="{{list1}}" wx:key="k" wx:for-index="idx" class="margin-top-10 gd flex-row flex-center " hidden='{{tab!=0}}'>
+<view wx:if='{{list1.length==0}}' class='flex-row flex-column' hidden='{{tab!=0}}'>
+  <image class='null_icon1 padding-40 ' src='{{uploadpath}}resource/{{res.zhaobudao}}'></image>
+  <view class=''>暂无热门推荐,看看其它的吧</view>
+</view>
+
+<view wx:if='{{list.length==0}}' class='flex-row flex-column' hidden='{{tab!=1}}'>
+  <image class='null_icon1 padding-40 ' src='{{uploadpath}}resource/{{res.zhaobudao}}'></image>
+  <view class=''>暂无最新发布,看看其它的吧</view>
+</view>
+
+
+
+<view wx:for="{{list1}}" wx:key="k" wx:for-index="idx" class="margin-top-10 gd flex-row flex-center  " hidden='{{tab!=0}}'>
   <navigator url='/pages/details/details?id={{item.id}}' class="flex-1 margin-top-10 margin-right-20 margin-left-10">
-
     <image class=' margin-left-10 ' style='width:170rpx;height:250rpx' mode='aspectFill' src='{{uploadpath}}product/{{item.cover}}'></image>
-
   </navigator>
 
-  <view class="flex-3 flex-wrap  margin-top-10">
-    <navigator url='/pages/details/details?id={{item.id}} '>
-      <view class="txt-black ">{{item.name}}</view>
-      <view class="margin-top-5 h6 margin-right-10" style='height:150rpx'>{{item.summary}}</view>
+  <view class="flex-3  ">
+    <navigator url='/pages/details/details?id={{item.id}}&&isfav={{item.isfav}}'>
+      <view class="txt-black">{{item.name}}</view>
+      <view class="margin-top-5 h6 margin-right-10" style='height:110rpx'>{{item.summary}}</view>
+
+
+
+      <view class="h4 " style='color:#E51C23'>￥{{item.price}}</view>
+
+
     </navigator>
     <view class=" flex-row flex-center">
-      <view class="flex-4 flex-row flex-bottom">
-        <view>价格</view>
-        <view class="h4 margin-left-10" style='color:#E51C23'>￥{{item.price}}</view>
+      <view class="flex-4 flex-row  flex-bottom ">
+        <view class="">原价</view>
+        <view class="  margin-left-10" style='color:#BBBBBB;text-decoration:line-through;'>{{item.oriprice}}</view>
       </view>
-      <view class="flex-3" style='color:#BBBBBB;text-decoration:line-through;'>原价{{item.oriprice}}</view>
-      <view class="flex-3  text-center flex-row  " id='{{item.id}}'  bindtap='fav'>
+      <view class="flex-3 flex-center text-center flex-row  " style='color:#BBBBBB;'>
+
         <view class="margin-top-5">
-          <image   class='icon-17' wx:if='{{item.isfav==0}}' src='{{uploadpath}}resource/{{res.shoucanggray}}'></image>
-          <image   class='icon-17' wx:if='{{item.isfav>0}}' src='{{uploadpath}}resource/{{res.shoucangcolor}}'></image>
+
+          <image class='icon-17 margin-left-10' src='{{uploadpath}}resource/{{res.liulang}}'></image>
+
+
+        </view>
+        <view class="margin-left-10  ysc  ">{{item.viewcount}}</view>
+
+      </view>
+      <view class="flex-3 text-center flex-row  flex-center " style='' id='{{item.id}}' bindtap='fav'>
+        <view class="margin-top-5 ">
+
+          <image class='icon-17 margin-left-10' wx:if='{{item.isfav==0}}' src='{{uploadpath}}resource/{{res.shoucanggray}}'></image>
+          <image class='icon-17 margin-left-10' wx:if='{{item.isfav>0}}' src='{{uploadpath}}resource/{{res.shoucangcolor}}'></image>
+
         </view>
         <view class="margin-left-10  ysc  " wx-if='{{item.isfav>0}}'>{{item.favcount}}</view>
-         <view class="margin-left-10  "  wx-if='{{item.isfav==0}}'>收藏</view>
+        <view class="margin-left-10  " wx-if='{{item.isfav==0}}'>收藏</view>
       </view>
-
     </view>
-
   </view>
 
 </view>
 <!-- 最新发布-->
 <view wx:for="{{list}}" wx:key="k" wx:for-index="idx" class="margin-top-10 gd flex-row flex-center " hidden='{{tab!=1}}'>
   <navigator url='/pages/details/details?id={{item.id}}' class="flex-1 margin-top-10 margin-right-20 margin-left-10">
-
-    <image class=' margin-left-10 ' style='width:170rpx;height:250rpx' mode='aspectFill'  src='{{uploadpath}}product/{{item.cover}}'></image>
-
+    <image class=' margin-left-10 ' style='width:170rpx;height:250rpx' mode='aspectFill' src='{{uploadpath}}product/{{item.cover}}'></image>
   </navigator>
 
-  <view class="flex-3 flex-wrap  margin-top-10">
-    <navigator url='/pages/details/details?id={{item.id}} '>
-      <view class="txt-black ">{{item.name}}</view>
-      <view class="margin-top-5 h6 margin-right-10" style='height:150rpx'>{{item.summary}}</view>
+  <view class="flex-3  ">
+    <navigator url='/pages/details/details?id={{item.id}}&&isfav={{item.isfav}}'>
+      <view class="txt-black">{{item.name}}</view>
+      <view class="margin-top-5 h6 margin-right-10" style='height:110rpx'>{{item.summary}}</view>
+
+
+
+      <view class="h4 " style='color:#E51C23'>￥{{item.price}}</view>
+
+
     </navigator>
-    <view class=" flex-row flex-center">
-      <view class="flex-4 flex-row flex-bottom">
-        <view>价格</view>
-        <view class="h4 margin-left-10" style='color:#E51C23'>￥{{item.price}}</view>
+    <view class=" flex-row flex-center ">
+      <view class="flex-4 flex-row flex-bottom ">
+        <view>原价</view>
+        <view class=" margin-left-10" style='color:#BBBBBB;text-decoration:line-through;'>{{item.oriprice}}</view>
       </view>
-      <view class="flex-3" style='color:#BBBBBB;text-decoration:line-through;'>原价{{item.oriprice}}</view>
-      <view class="flex-3  text-center flex-row  " id='{{item.id}}'  bindtap='fav'>
+      <view class="flex-3 flex-row" style='color:#BBBBBB;'>
         <view class="margin-top-5">
-          <image   class='icon-17' wx:if='{{item.isfav==0}}' src='{{uploadpath}}resource/{{res.shoucanggray}}'></image>
-          <image   class='icon-17' wx:if='{{item.isfav>0}}' src='{{uploadpath}}resource/{{res.shoucangcolor}}'></image>
+
+          <image class='icon-17 margin-left-10' src='{{uploadpath}}resource/{{res.liulang}}'></image>
+
+
         </view>
-          <view class="margin-left-10  ysc  " wx-if='{{item.isfav>0}}'>{{item.favcount}}</view>
-         <view class="margin-left-10  "  wx-if='{{item.isfav==0}}'>收藏</view>
+        <view class="margin-left-10  ysc ">{{item.viewcount}}</view>
+
       </view>
+      <view class="flex-3 text-center flex-row " id='{{item.id}}' bindtap='fav'>
+        <view class="margin-top-5">
 
+          <image class='icon-17 margin-left-10' wx:if='{{item.isfav==0}}' src='{{uploadpath}}resource/{{res.shoucanggray}}'></image>
+          <image class='icon-17 margin-left-10' wx:if='{{item.isfav>0}}' src='{{uploadpath}}resource/{{res.shoucangcolor}}'></image>
+
+        </view>
+        <view class="margin-left-10  ysc  " wx-if='{{item.isfav>0}}'>{{item.favcount}}</view>
+        <view class="margin-left-10  " wx-if='{{item.isfav==0}}'>收藏</view>
+      </view>
     </view>
-
   </view>
 
 </view>

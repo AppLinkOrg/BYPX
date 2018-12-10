@@ -27,7 +27,7 @@ class Content extends AppBase {
 
   getUserInfo(e) {
     console.log(666666666);
-    wx.redirectTo({
+    wx.switchTab({
       url: '/pages/home/home',
     });
     //open-type="getUserInfo" bindgetuserinfo="getUserInfo"

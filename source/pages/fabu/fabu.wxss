@@ -9,12 +9,33 @@ page {
 
 
 }
-.fabu{
+.uploadWrap{
+  height:300rpx; width:100%; display: flex; display: -webkit-box; flex-direction: column
 
+}
+.imgbg{
+  width: 300rpx;
+  height: 300rpx;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+}
+.imgbg_border{
+  width: 300rpx;
+  height: 300rpx;
+  border:2rpx rgba(211, 211, 211, 0.5) solid;
+  margin-top: 10rpx;
+}
+.addimg{
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+
+}
+.fabu{
+ 
 color:black;
 
 background-color: #F6AE4A;
-margin-top:325rpx;
+margin-top:30rpx;
 border-radius: 10rpx
 }
 .aa{

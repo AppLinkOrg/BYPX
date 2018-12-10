@@ -21,6 +21,32 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
   }
+  rz(){
+ 
+    wx.showModal({
+      title: '提示',
+      content: '您还没有认证,是否前往认证',
+      success(e) {
+if(e.confirm)
+{
+  wx.navigateTo({
+    url: '/pages/wode/wode',
+  })
+        
+      }
+      else if(e.cancel){
+
+  wx.switchTab({
+    url: '/pages/home/home',
+  })
+
+
+      }
+      }
+    })
+   
+
+  }
   onMyShow() {
     var that = this;
 
@@ -34,4 +60,5 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.rz=content.rz;
 Page(body)

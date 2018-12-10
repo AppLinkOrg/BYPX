@@ -263,14 +263,43 @@ export class OrderApi {
       }
     })
   }
-  //获取成员列表
-  memberlist(json, callback, showLoading = true) {
+  //查询校园认证
+  renzhen(json, callback, showLoading = true) {
     if (showLoading)
       ApiConfig.ShowLoading();
     var header = ApiConfig.GetHeader();
     console.log(header);
     wx.request({
-      url: ApiConfig.GetApiUrl() + 'order/memberlist',
+      url: ApiConfig.GetApiUrl() + 'certification/renzhen',
+      data: json,
+      method: 'POST',
+      dataType: 'json',
+      header: header,
+      success: function (res) {
+        if (callback != null) {
+          callback(res.data);
+        }
+      },
+      fail: function (res) {
+        console.log(res);
+        callback(false);
+      },
+      complete: function (res) {
+        console.log(res);
+
+        if (showLoading)
+          ApiConfig.CloseLoading();
+      }
+    })
+  }
+  //获取留言列表
+  commentlist(json, callback, showLoading = true) {
+    if (showLoading)
+      ApiConfig.ShowLoading();
+    var header = ApiConfig.GetHeader();
+    console.log(header);
+    wx.request({
+      url: ApiConfig.GetApiUrl() + 'product/commentlist',
       data: json,
       method: 'POST',
       dataType: 'json',
@@ -321,14 +350,14 @@ export class OrderApi {
       }
     })
   }
-  //添加团队成员
-  addmembers(json, callback, showLoading = true) {
+  //添加评论
+  comment(json, callback, showLoading = true) {
     if (showLoading)
       ApiConfig.ShowLoading();
     var header = ApiConfig.GetHeader();
     console.log(header);
     wx.request({
-      url: ApiConfig.GetApiUrl() + 'order/addmembers',
+      url: ApiConfig.GetApiUrl() + 'product/comment',
       data: json,
       method: 'POST',
       dataType: 'json',
@@ -379,14 +408,14 @@ export class OrderApi {
       }
     })
   }
-  //获取我的企业的详情
-  enterpriseinfo(json, callback, showLoading = true) {
+  //搜索商品
+  search(json, callback, showLoading = true) {
     if (showLoading)
       ApiConfig.ShowLoading();
     var header = ApiConfig.GetHeader();
     console.log(header);
     wx.request({
-      url: ApiConfig.GetApiUrl() + 'order/enterpriseinfo',
+      url: ApiConfig.GetApiUrl() + 'product/search',
       data: json,
       method: 'POST',
       dataType: 'json',
@@ -408,14 +437,14 @@ export class OrderApi {
       }
     })
   }
-  //获取企业的列表
-  enterpriselist(json, callback, showLoading = true) {
+  //获取热门搜索和我的搜索
+  searchkeyword(json, callback, showLoading = true) {
     if (showLoading)
       ApiConfig.ShowLoading();
     var header = ApiConfig.GetHeader();
     console.log(header);
     wx.request({
-      url: ApiConfig.GetApiUrl() + 'order/enterpriselist',
+      url: ApiConfig.GetApiUrl() + 'product/searchkeyword',
       data: json,
       method: 'POST',
       dataType: 'json',
@@ -437,14 +466,14 @@ export class OrderApi {
       }
     })
   }
-  //获取运输单状态列表 
-  orderstatus(json, callback, showLoading = true) {
+  //删除下架商品
+  removeproduct(json, callback, showLoading = true) {
     if (showLoading)
       ApiConfig.ShowLoading();
     var header = ApiConfig.GetHeader();
     console.log(header);
     wx.request({
-      url: ApiConfig.GetApiUrl() + 'order/orderstatus',
+      url: ApiConfig.GetApiUrl() + 'product/removeproduct',
       data: json,
       method: 'POST',
       dataType: 'json',

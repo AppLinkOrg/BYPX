@@ -9,6 +9,37 @@ page {
 
 
 }
+.null_icon1{
+
+
+  height: 200rpx;
+  width: 240rpx;
+  
+  margin-left: 20rpx;
+
+
+}
+text {
+ /* 超出的文本内容隐藏 */ 
+overflow: hidden;
+/* 超出显示省略号 */ 
+text-overflow: ellipsis;
+/* 强制不换行 */ 
+white-space: nowrap;
+}
+
+ .swiper_container {
+   height: 40rpx;
+   width: 80vw;
+  }
+  
+  .swiper_item {
+    
+   
+   
+   white-space: nowrap;
+   letter-spacing: 2px; }
+
 .ysc{
 
 color: #F6AE4A;
@@ -21,7 +52,7 @@ font-weight: bold;
     border-bottom: 1px solid #f7b81f;
 }
 .search{
-margin-right: 30rpx;
+margin-right: 20rpx;
 
  
   background-color: white;
