@@ -28,7 +28,7 @@ class Content extends AppBase {
     super.onLoad(options);
   }
   inputTyping(e) {
-    this.Base.setMyData({
+    this.biase.setMyData({
       inputVal: e.detail.value
     });
   }

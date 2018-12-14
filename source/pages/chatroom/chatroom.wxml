@@ -74,13 +74,13 @@
   </view> -->
 
 </scroll-view>
-<form bindsubmit="send" bindreset="formReset" report-submit="{{true}}">
+<form bindsubmit="send"    bindreset="formReset" report-submit="{{true}}">
   <view class='flex-row flex-center bottomin  white-block' style='padding:20rpx; '>
     <view>
       <image class='icon' src='{{uploadpath}}resource/{{res.img}}' style='margin-right:10rpx;' bindtap='sendPhoto'></image>
     </view>
     <view style='flex:4;font-size:28rpx;'>
-      <input type='text' cursor-spacing="10" placeholder='说点啥好呢' name="msg" value='{{msg}}' maxlength='50' auto-focus='trueaaaa' ></input>
+      <input type='text'  bindconfirm="send1" bindinput="inputTyping"  cursor-spacing="10" placeholder='说点啥好呢' name="msg" value='{{msg}}' maxlength='50' auto-focus='trueaaaa' ></input>
     </view>
     <view class='text-center' style='flex:1'>
       <button type='primary' size='mini' formType="submit">发送</button>

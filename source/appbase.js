@@ -15,7 +15,7 @@ export class AppBase {
   static UserInfo = {};
   static InstInfo = {};
   unicode = "1";
-  needauth = false;
+  needauth = true;
   pagetitle = null;
   app = null;
   options = null;

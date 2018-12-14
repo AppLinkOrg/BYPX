@@ -104,6 +104,32 @@ class Content extends AppBase {
     this.Base.setMyData({ msg: "" });
     
   }
+  inputTyping(e) {
+    this.Base.setMyData({
+      msg: e.detail.value
+    });
+  }
+  send1(e) {
+    console.log(e);
+    //if(e.)
+    var msg = this.Base.getMyData().msg;
+    if (msg.trim() == "") {
+      wx.showToast({
+        title: '至少写点东西才能发送',
+        icon: "none"
+      });
+      return;
+    }
+    var api = new MemberApi();
+    api.chat({
+      received_member_id: this.Base.options.member_id, msg: msg, photo: '', product: this.Base.getMyData().post_id
+      , tb_product_img: this.Base.getMyData().product_img
+    }, (ret) => {
+
+    });
+    this.Base.setMyData({ msg: "" });
+
+  }
   sendPhoto() {
     this.Base.uploadOneImage("memberchat", (image) => {
       var api = new MemberApi();
@@ -153,8 +179,10 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.inputTyping = content.inputTyping;
 body.openmember = content.openmember;
 body.send = content.send;
+body.send1 = content.send1;
 body.onUnload = content.onUnload;
 body.sendPhoto = content.sendPhoto;
 
