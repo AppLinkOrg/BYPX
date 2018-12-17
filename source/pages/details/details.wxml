@@ -60,9 +60,9 @@
   <view class=''>暂无留言</view>
 </view> -->
 
-
+<!-- 留言区域 -->
   
-  <view wx:for="{{commentlist}}" wx:for-index="idx" wx:key="k" class="dl">
+  <view wx:for="{{commentlist}}" data-id="{{item.member_nickName}}" id="{{item.id}}"  bindtap='hf' wx:for-index="idx" wx:key="k" class="dl">
     <view class=" flex-row flex-center text-center  ">
       <view class="flex-1 margin-20">
         <image class='icon-40 margin-left-10 margin-top-5' src='{{item.member_avatarUrl}}'></image>
@@ -71,7 +71,7 @@
         <view class="txt-black">{{item.member_id_name}}</view>
         <view>{{item.comment_time_formatting}}</view>
       </view>
-      <view class="flex-3"></view>
+      <view class="flex-3 "></view>
 
 
     </view>
@@ -80,7 +80,30 @@
       <view class="flex-8 h5 txt-black margin-bottom-20">{{item.comment}}</view>
       <view class="flex-1"></view>
     </view>
+    <!-- 回复区域 -->
+    <view  wx:for="{{item.subcomments}}" wx:key="k" class="margin-left-40" >
+    
+    <view class=" flex-row flex-center text-center  ">
+      <view class="flex-1 margin-20">
+        <image class='icon-30 margin-left-10 margin-top-5' src='{{item.member_avatarUrl}}'></image>
+      </view>
+      <view class="flex-8 flex-wrap text-left">
+        <view class="txt-black h5">{{item.member_nickName}}</view>
+        <view class="h5">回复@{{commentlist[idx].member_nickName}}:{{item.comment}}</view>
+      </view>
+      <view class="flex-1 "></view>
+
+
+    </view>
+    <view class=" flex-row flex-center text-left gd">
+      <view class="flex-2 "></view>
+      <view class="flex-8 h5 txt-black margin-bottom-20">{{item.comment_time}}</view>
+      <view class="flex-1"></view>
+    </view>
+    </view>
   </view>
+
+
 
 </view>
 <!-- 我要购买 -->
@@ -138,6 +161,29 @@
         </view>
 
         <button class="text-center  fabu flex-1" form-type='submit' style=''>发布</button>
+      </view>
+
+    </view>
+
+  </form>
+
+</action-sheet>
+
+<action-sheet hidden="{{passwordInputHidden1}}" bindchange="passwordInputHidden1">
+  <form bindsubmit="confirm1" bindreset="formReset" report-submit="{{true}}">
+    <view class="flex-wrap">
+
+
+
+      <view class="margin-20 flex-row ">
+
+        <view class="flex-5 flex-row ">
+
+          <input placeholder="回复:{{name}}" name="huifu" bindinput='huifu' class="dl"  cursor-spacing="20" style=' padding:20; margin-left:20rpx;width:100%;margin-top:20rpx' value='{{inputValue}}'></input>
+
+        </view>
+
+        <button class="text-center  fabu flex-1" form-type='submit' style=''>回复</button>
       </view>
 
     </view>

@@ -15,6 +15,7 @@ class Content extends AppBase {
   }
   onShow() {
     var keycode = this.Base.options.keycode;
+    console.log("111111" + keycode);
     var title = this.Base.options.title;
     var contentapi = new ContentApi();
     var that = this;

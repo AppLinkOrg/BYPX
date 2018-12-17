@@ -33,13 +33,30 @@
     </view>
     <view class="margin-20 txt-black">关于我们</view>
   </navigator>
+
+<view bindtap='contactweixin' class="flex-row" style='border-bottom:1px solid #E5E5E5'>
+    <view class="margin-20">
+      <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.kefuwx}}'></image>
+    </view>
+    <view class="margin-20 txt-black">客服微信</view>
+  </view>
+
+   <!-- <view class="flex-row"  bindtap='contactkefu' style='border-bottom:1px solid #E5E5E5'>
+    <view class="margin-20">
+      <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.bodakefu}}'></image>
+    </view>
+    <view class="margin-20 txt-black">拨打客服</view>
+  </view>
+    -->
+
+
   <view class="flex-row" style='border-bottom:1px solid #E5E5E5'>
   
     <view class="margin-20">
     <button class=' clear-contact  ' style='width:750rpx;height:100rpx;' open-type='contact' ></button>
       <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.wodelianxikefu}}'></image>
     </view>
-    <view class="margin-20 txt-black ">联系客服</view>
+    <view class="margin-20 txt-black flex-row flex-bottom ">在线客服<view class="h6">(如需立刻回复请添加客服微信)</view></view>
   </view>
 
 </view>

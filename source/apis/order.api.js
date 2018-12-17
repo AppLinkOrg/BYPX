@@ -495,6 +495,36 @@ export class OrderApi {
       }
     })
   }
+
+  //获取我的评论消息
+  commentxx(json, callback, showLoading = true) {
+    if (showLoading)
+      ApiConfig.ShowLoading();
+    var header = ApiConfig.GetHeader();
+    console.log(header);
+    wx.request({
+      url: ApiConfig.GetApiUrl() + 'product/commentxx',
+      data: json,
+      method: 'POST',
+      dataType: 'json',
+      header: header,
+      success: function (res) {
+        if (callback != null) {
+          callback(res.data);
+        }
+      },
+      fail: function (res) {
+        console.log(res);
+        callback(false);
+      },
+      complete: function (res) {
+        console.log(res);
+
+        if (showLoading)
+          ApiConfig.CloseLoading();
+      }
+    })
+  }
   //删除运输单报名 
   deleteapply(json, callback, showLoading = true) {
     if (showLoading)

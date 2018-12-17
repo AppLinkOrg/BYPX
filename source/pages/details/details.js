@@ -22,7 +22,7 @@ class Content extends AppBase {
     //options.id=5;
 
     super.onLoad(options);
-    this.Base.setMyData({ passwordInputHidden: true });
+    this.Base.setMyData({ passwordInputHidden: true, passwordInputHidden1: true });
 
   }
   fav(e) {
@@ -95,9 +95,28 @@ class Content extends AppBase {
 
     });
   }
+  passwordInputHidden1() {
+    this.setData({
+      passwordInputHidden1: !this.data.passwordInputHidden1  //取反 打开关闭小键盘
+    });
+    this.setData({
+
+    });
+  }
   ly() {
     console.log(6666666666);
     this.passwordInputHidden();
+  }
+
+  hf(e) {
+  console.log(e);
+  console.log(666666);
+    this.Base.setMyData({
+      hf: e.currentTarget.id,
+      name: e.currentTarget.dataset.id
+     
+    })
+    this.passwordInputHidden1();
   }
   liuyan(e) {
     var liuyan = e.detail.value;
@@ -107,6 +126,15 @@ class Content extends AppBase {
     })
   }
 
+  huifu(e) {
+    var huifu = e.detail.value;
+
+    this.Base.setMyData({
+      huifu: e.detail.value
+    })
+  }
+
+
   //留言
   confirm(e) {
     var data = e.detail.value;
@@ -115,7 +143,7 @@ class Content extends AppBase {
       this.Base.info("请输入留言");
       return;
     }
-    var reply_member_id = this.Base.getMyData().userlist.id;
+  
     var liuyan = this.Base.getMyData().liuyan;
     var comment_time = Date.parse(new Date());
     var product_id = this.Base.getMyData().list.id;
@@ -125,7 +153,7 @@ class Content extends AppBase {
     var api = new OrderApi();
 
     api.comment({
-      reply_member_id: reply_member_id,
+     
       comment_time: comment_time,
       product_id: product_id,
       comment: liuyan,
@@ -143,6 +171,48 @@ class Content extends AppBase {
     });
   }
 
+
+  confirm1(e) {
+    var data = e.detail.value;
+
+    if (data.huifu == "") {
+      this.Base.info("请输入回复");
+      return;
+    }
+
+    var huifu = this.Base.getMyData().huifu;
+    var comment_time = Date.parse(new Date());
+    var product_id = this.Base.getMyData().list.id;
+     var reply_member_id=this.Base.getMyData().memberinfo.id;
+
+    var reply_comment_id=this.Base.getMyData().hf;
+    console.log(666666);
+    console.log(reply_member_id, reply_comment_id);
+    var that = this;
+
+
+    var api = new OrderApi();
+
+    api.comment({
+      reply_member_id: reply_member_id,
+      reply_comment_id: reply_comment_id,
+      comment_time: comment_time,
+      product_id: product_id,
+      comment: huifu,
+
+    }, (updetedriver) => {
+      api.commentlist({ product_id: that.Base.options.id }, (commentlist) => {
+
+
+
+        this.Base.setMyData({ commentlist, isfav: that.Base.getMyData().list.isfav, passwordInputHidden1: true, inputValue: "" });
+
+      });
+
+
+    });
+  }
+
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -150,7 +220,11 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.fav = content.fav;
 body.passwordInputHidden = content.passwordInputHidden;
+body.passwordInputHidden1 = content.passwordInputHidden1;
 body.ly = content.ly;
+body.hf = content.hf;
+body.huifu=content.huifu;
 body.liuyan = content.liuyan;
+body.confirm1 = content.confirm1;
 body.confirm = content.confirm;
 Page(body)

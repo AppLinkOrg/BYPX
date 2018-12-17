@@ -96,6 +96,7 @@ export class AppBase {
       navtoPage: base.navtoPage,
       openContent: base.openContent,
       getPhoneNo: base.getPhoneNo,
+     
       dataReturn: base.dataReturn,
       dataReturnCallback: base.dataReturnCallback,
       loadtabtype: base.loadtabtype,
@@ -866,17 +867,11 @@ export class AppBase {
     var instinfo = this.Base.getMyData().instinfo;
     console.log(instinfo);
     wx.showActionSheet({
-      itemList: ["拨打热线", "添加客服"],
+      itemList: [instinfo.customersj, "拨打客服"],
       success(e) {
-        if (e.tapIndex == 0) {
+        if (e.tapIndex == 1) {
           wx.makePhoneCall({
-            phoneNumber: instinfo.tel
-          })
-        } else {
-          var img = ApiConfig.GetUploadPath() + "inst/" + instinfo.kefuerweima;
-          console.log(img);
-          wx.previewImage({
-            urls: [img],
+            phoneNumber: instinfo.customersj
           })
         }
       }
@@ -887,13 +882,13 @@ export class AppBase {
     var instinfo = this.Base.getMyData().instinfo;
     console.log(instinfo);
     wx.showActionSheet({
-      itemList: [instinfo.wechatno, "一键复制"],
+      itemList: [instinfo.customerwx, "一键复制"],
       success(e) {
         if (e.tapIndex == 0) {
 
         } else {
           wx.setClipboardData({
-            data: instinfo.wechatno,
+            data: instinfo.customerwx	,
           })
         }
       }

@@ -27,7 +27,7 @@ class Content extends AppBase {
     var that = this;
     var api = new OrderApi();
     var sj=[];
-    api.commentlist({ reply_member_id: this.Base.getMyData().memberinfo.id }, (commentlist) => {
+    api.commentlist({ member_id: this.Base.getMyData().memberinfo.id }, (commentlist) => {
 
             for(var i=0;i<commentlist.length;i++){
               sj[i] =that.time_ago(commentlist[i].comment_time_timespan)
@@ -36,8 +36,9 @@ class Content extends AppBase {
             }
 
       this.Base.setMyData({ commentlist, sj });
-
+  
     });
+    
     var memberApi = new MemberApi();
     memberApi.chatmember({}, (chatmember) => {
       console.log(chatmember);
