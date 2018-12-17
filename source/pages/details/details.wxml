@@ -52,7 +52,7 @@
   <!-- 留言部分 -->
   <view class="flex-row ">
     <view class="flex-1 txt-black padding-20">留言({{commentlist.length}}):</view>
-    <view class="margin-20" style='color:#FFB400' bindtap='ly'>留言</view>
+    <view class="margin-20" style='color:#FFB400' bindtap='ly' wx:if="{{list.member_id!=memberinfo.id}}">留言</view>
   </view>
   <!-- 留言 -->
 <!-- <view wx:if='{{commentlist.length==0}}' class='flex-row flex-column' >
@@ -62,7 +62,7 @@
 
 <!-- 留言区域 -->
   
-  <view wx:for="{{commentlist}}" data-id="{{item.member_nickName}}" id="{{item.id}}"  bindtap='hf' wx:for-index="idx" wx:key="k" class="dl">
+  <view wx:for="{{commentlist}}"  data-id="{{item.member_nickName}}" id="{{item.id}}"  bindtap='hf' wx:for-index="idx" wx:key="k" class="dl">
     <view class=" flex-row flex-center text-center  ">
       <view class="flex-1 margin-20">
         <image class='icon-40 margin-left-10 margin-top-5' src='{{item.member_avatarUrl}}'></image>

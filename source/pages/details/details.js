@@ -1,9 +1,19 @@
 // pages/content/content.js
-import { AppBase } from "../../appbase";
-import { ApiConfig } from "../../apis/apiconfig";
-import { InstApi } from "../../apis/inst.api.js";
-import { OrderApi } from "../../apis/order.api.js";
-import { MemberApi } from "../../apis/member.api.js";
+import {
+  AppBase
+} from "../../appbase";
+import {
+  ApiConfig
+} from "../../apis/apiconfig";
+import {
+  InstApi
+} from "../../apis/inst.api.js";
+import {
+  OrderApi
+} from "../../apis/order.api.js";
+import {
+  MemberApi
+} from "../../apis/member.api.js";
 class Content extends AppBase {
   constructor() {
     super();
@@ -22,18 +32,27 @@ class Content extends AppBase {
     //options.id=5;
 
     super.onLoad(options);
-    this.Base.setMyData({ passwordInputHidden: true, passwordInputHidden1: true });
+    this.Base.setMyData({
+      passwordInputHidden: true,
+      passwordInputHidden1: true
+    });
 
   }
   fav(e) {
     var that = this;
     var api = new OrderApi();
-    api.memberfav({ product_id: e.currentTarget.id, }, (ret) => {
-      api.goods({ id: that.Base.options.id }, (list) => {
-       
+    api.memberfav({
+      product_id: e.currentTarget.id,
+    }, (ret) => {
+      api.goods({
+        id: that.Base.options.id
+      }, (list) => {
+
         list.images = list.images.split(",");
 
-        this.Base.setMyData({ list });
+        this.Base.setMyData({
+          list
+        });
       });
 
       if (ret.return == "") {
@@ -45,42 +64,60 @@ class Content extends AppBase {
         this.Base.toast("收藏成功");
 
       }
-      api.commentlist({ product_id: that.Base.options.id }, (commentlist) => {
+      api.commentlist({
+        product_id: that.Base.options.id
+      }, (commentlist) => {
 
-        this.Base.setMyData({ commentlist, isfav: ret.return == "" ? "0" : "1" });
+        this.Base.setMyData({
+          commentlist,
+          isfav: ret.return == "" ? "0" : "1"
+        });
 
-         
+
 
       });
-     
+
 
     })
-   
+
   }
   onMyShow() {
     var that = this;
 
     var api = new OrderApi();
     var api1 = new MemberApi();
-    
 
-    api.goods({ id: that.Base.options.id }, (list) => {
+
+    api.goods({
+      id: that.Base.options.id
+    }, (list) => {
 
       list.images = list.images.split(",");
       console.log(list.images);
-      this.Base.setMyData({ list,  });
-      api1.userlist({ id: list.member_id }, (userlist) => {
+      this.Base.setMyData({
+        list,
+      });
+      api1.userlist({
+        id: list.member_id
+      }, (userlist) => {
 
 
 
-        this.Base.setMyData({ userlist });
+        this.Base.setMyData({
+          userlist
+        });
 
       });
-      api.commentlist({ product_id: that.Base.options.id }, (commentlist) => {
+      api.commentlist({
+        product_id: that.Base.options.id
+      }, (commentlist) => {
 
 
 
-        this.Base.setMyData({ commentlist, isfav: this.Base.getMyData().list.isfav, });
+        this.Base.setMyData({
+          commentlist,
+          isfav: this.Base.getMyData().list.isfav,
+        });
 
       });
 
@@ -89,7 +126,7 @@ class Content extends AppBase {
   }
   passwordInputHidden() {
     this.setData({
-      passwordInputHidden: !this.data.passwordInputHidden  //取反 打开关闭小键盘
+      passwordInputHidden: !this.data.passwordInputHidden //取反 打开关闭小键盘
     });
     this.setData({
 
@@ -97,7 +134,7 @@ class Content extends AppBase {
   }
   passwordInputHidden1() {
     this.setData({
-      passwordInputHidden1: !this.data.passwordInputHidden1  //取反 打开关闭小键盘
+      passwordInputHidden1: !this.data.passwordInputHidden1 //取反 打开关闭小键盘
     });
     this.setData({
 
@@ -109,14 +146,18 @@ class Content extends AppBase {
   }
 
   hf(e) {
-  console.log(e);
-  console.log(666666);
-    this.Base.setMyData({
-      hf: e.currentTarget.id,
-      name: e.currentTarget.dataset.id
-     
-    })
-    this.passwordInputHidden1();
+    console.log(e);
+    console.log(666666);
+    var memberinfo = this.Base.getMyData().memberinfo;
+    var list = this.Base.getMyData().list;
+    if (memberinfo.id == e.currentTarget.dataset.comment_member_id || list.member_id==memberinfo.id) {
+
+      this.Base.setMyData({
+        hf: e.currentTarget.id,
+        name: e.currentTarget.dataset.id
+      })
+      this.passwordInputHidden1();
+    }
   }
   liuyan(e) {
     var liuyan = e.detail.value;
@@ -143,7 +184,7 @@ class Content extends AppBase {
       this.Base.info("请输入留言");
       return;
     }
-  
+
     var liuyan = this.Base.getMyData().liuyan;
     var comment_time = Date.parse(new Date());
     var product_id = this.Base.getMyData().list.id;
@@ -153,17 +194,24 @@ class Content extends AppBase {
     var api = new OrderApi();
 
     api.comment({
-     
+
       comment_time: comment_time,
       product_id: product_id,
       comment: liuyan,
 
     }, (updetedriver) => {
-      api.commentlist({ product_id: that.Base.options.id }, (commentlist) => {
+      api.commentlist({
+        product_id: that.Base.options.id
+      }, (commentlist) => {
 
 
 
-        this.Base.setMyData({ commentlist, isfav: that.Base.getMyData().list.isfav, passwordInputHidden: true, inputValue: "" });
+        this.Base.setMyData({
+          commentlist,
+          isfav: that.Base.getMyData().list.isfav,
+          passwordInputHidden: true,
+          inputValue: ""
+        });
 
       });
 
@@ -183,9 +231,9 @@ class Content extends AppBase {
     var huifu = this.Base.getMyData().huifu;
     var comment_time = Date.parse(new Date());
     var product_id = this.Base.getMyData().list.id;
-     var reply_member_id=this.Base.getMyData().memberinfo.id;
+    var reply_member_id = this.Base.getMyData().memberinfo.id;
 
-    var reply_comment_id=this.Base.getMyData().hf;
+    var reply_comment_id = this.Base.getMyData().hf;
     console.log(666666);
     console.log(reply_member_id, reply_comment_id);
     var that = this;
@@ -201,11 +249,18 @@ class Content extends AppBase {
       comment: huifu,
 
     }, (updetedriver) => {
-      api.commentlist({ product_id: that.Base.options.id }, (commentlist) => {
+      api.commentlist({
+        product_id: that.Base.options.id
+      }, (commentlist) => {
 
 
 
-        this.Base.setMyData({ commentlist, isfav: that.Base.getMyData().list.isfav, passwordInputHidden1: true, inputValue: "" });
+        this.Base.setMyData({
+          commentlist,
+          isfav: that.Base.getMyData().list.isfav,
+          passwordInputHidden1: true,
+          inputValue: ""
+        });
 
       });
 
@@ -223,7 +278,7 @@ body.passwordInputHidden = content.passwordInputHidden;
 body.passwordInputHidden1 = content.passwordInputHidden1;
 body.ly = content.ly;
 body.hf = content.hf;
-body.huifu=content.huifu;
+body.huifu = content.huifu;
 body.liuyan = content.liuyan;
 body.confirm1 = content.confirm1;
 body.confirm = content.confirm;
