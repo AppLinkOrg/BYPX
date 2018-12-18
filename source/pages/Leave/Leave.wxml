@@ -1,0 +1,19 @@
+<navigator url='/pages/chatroom/chatroom?member_id={{item.id}}&&post_id={{item.chat.product}}&&product_img={{item.chat.tb_product_img}}' wx:for="{{commentlist}}" wx:key="k" wx:for-index="idx" class="flex-row flex-center bg " style='border-bottom:1px solid #E5E5E5'>
+  <view class=" margin-20 " style='margin-right:0'>
+    <image class='icon-40 margin-left-10 margin-top-5' mode='aspectFill' src='{{item.member_avatarUrl}}'></image>
+  </view>
+  <view class=" margin-20 flex-warp flex-1">
+    <view class="txt-black flex-row h6">{{item.member_id_name}}
+
+    
+    </view>
+    <view class="h6">{{item.chat.msg}}</view>
+    <view class="margin-top-5 h6">{{item.chat.timeduration}}</view>
+
+
+  </view>
+  <view class=" margin-right-20">
+    <image class='icon-60  margin-top-5' mode='aspectFill' src='{{uploadpath}}product/{{item.chat.tb_product_img}}'></image>
+  </view>
+
+</navigator>

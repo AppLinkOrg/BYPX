@@ -1,0 +1,12 @@
+<form bindsubmit='confirm'>
+  <view class="flex-wrap  flex-center gd">
+    <view class="flex-row flex-center " style='border-bottom:1px solid #E5E5E5'>
+      <view class="margin-20 txt-black flex-1 text-center ">微信号</view>
+      <input name="wx"  placeholder='请输入微信号' value='{{wxinfo[0].wx}}' class='fullimg text-center  flex-1 '></input>
+      <view>
+      </view>
+    </view>
+  </view>
+
+ <button form-type='submit' type='primary' style='margin-top:200rpx' >确认修改</button>
+</form>

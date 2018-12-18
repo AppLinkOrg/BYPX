@@ -8,7 +8,14 @@
   <view class="txt-white">{{UserInfo.nickName}}</view>
 </view>
 <view class="flex-wrap  flex-center gd">
-  
+   <navigator url="/pages/mywx/mywx"  class="flex-row" style='border-bottom:1px solid #E5E5E5'>
+    <view class="margin-20">
+      <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.wodefabu}}'></image>
+    </view>
+    <view class="margin-20 txt-black">我的微信</view>
+  </navigator>
+
+
   <navigator url="/pages/myrelease/myrelease"  class="flex-row" style='border-bottom:1px solid #E5E5E5'>
     <view class="margin-20">
       <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.wodefabu}}'></image>

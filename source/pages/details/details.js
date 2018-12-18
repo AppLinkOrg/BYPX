@@ -111,7 +111,14 @@ class Content extends AppBase {
       api.commentlist({
         product_id: that.Base.options.id
       }, (commentlist) => {
+        api1.getwx({ member_id:list.member_id},(userwx)=>{
 
+          this.Base.setMyData({
+            userwx:userwx
+          });
+
+
+          })
 
 
         this.Base.setMyData({
@@ -150,14 +157,14 @@ class Content extends AppBase {
     console.log(666666);
     var memberinfo = this.Base.getMyData().memberinfo;
     var list = this.Base.getMyData().list;
-    if (memberinfo.id == e.currentTarget.dataset.comment_member_id || list.member_id==memberinfo.id) {
+    // if (memberinfo.id == e.currentTarget.dataset.comment_member_id || list.member_id==memberinfo.id) {
 
-      this.Base.setMyData({
-        hf: e.currentTarget.id,
-        name: e.currentTarget.dataset.id
-      })
-      this.passwordInputHidden1();
-    }
+    this.Base.setMyData({
+      hf: e.currentTarget.id,
+      name: e.currentTarget.dataset.id
+    })
+    this.passwordInputHidden1();
+    // }
   }
   liuyan(e) {
     var liuyan = e.detail.value;
@@ -247,14 +254,10 @@ class Content extends AppBase {
       comment_time: comment_time,
       product_id: product_id,
       comment: huifu,
-
     }, (updetedriver) => {
       api.commentlist({
         product_id: that.Base.options.id
       }, (commentlist) => {
-
-
-
         this.Base.setMyData({
           commentlist,
           isfav: that.Base.getMyData().list.isfav,
@@ -267,7 +270,15 @@ class Content extends AppBase {
 
     });
   }
+fuzhi(){
+  var that=this;
+  wx.setClipboardData({
+    data:that.Base.getMyData().userwx[0].wx
+  })
 
+
+
+}
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -282,4 +293,5 @@ body.huifu = content.huifu;
 body.liuyan = content.liuyan;
 body.confirm1 = content.confirm1;
 body.confirm = content.confirm;
+body.fuzhi=content.fuzhi;
 Page(body)

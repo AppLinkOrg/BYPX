@@ -41,13 +41,11 @@ class Content extends AppBase {
     
     var memberApi = new MemberApi();
     memberApi.chatmember({}, (chatmember) => {
-      console.log(chatmember);
-      console.log(1111);
+      
       for (var i = 0; i < chatmember.length; i++) {
         chatmember[i].chat.timeduration = that.time_ago(chatmember[i].chat.sent_time_timespan);
       }
-      console.log(chatmember);
-      console.log(1111);
+     
       this.Base.setMyData({ chatmember: chatmember });
     });
   }

@@ -1,7 +1,19 @@
 
-<view>
+<view class=" flex-row flex-center bg  " style='margin-top:40rpx;margin-bottom:40rpx'>
+
+ <view class=" margin-20 " style='margin-right:0'>
+    <image class='icon-40 margin-left-10 margin-top-5' mode='aspectFill' src='{{item.avatarUrl}}'></image>
+  </view>
+  <view class=" margin-20 flex-warp flex-1">
+    
+    <view class="h6">留言</view>
+    <view class="margin-top-5 h6">还没收到留言呢</view>
 
 
+  </view>
+  <view class=" margin-right-20">
+    <image class='icon-60  margin-top-5' mode='aspectFill' src='{{uploadpath}}product/{{item.chat.tb_product_img}}'></image>
+  </view>
 
 </view>
 

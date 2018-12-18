@@ -1,6 +1,10 @@
 {
   "pages": [
-    "pages/home/home",
+  
+"pages/home/home",
+  "pages/Leave/Leave",
+    "pages/mywx/mywx",
+   
     "pages/mycollection/mycollection",
    
     "pages/content/content",
