@@ -1,8 +1,8 @@
 <form bindsubmit='confirm'>
   <view class="flex-wrap  flex-center gd">
     <view class="flex-row flex-center " style='border-bottom:1px solid #E5E5E5'>
-      <view class="margin-20 txt-black flex-1 text-center ">微信号</view>
-      <input name="wx"  placeholder='请输入微信号' value='{{wxinfo[0].wx}}' class='fullimg text-center  flex-1 '></input>
+      <view class="margin-20 txt-black flex-1   ">微信号</view>
+      <input name="wx"  placeholder='请输入微信号' value='{{wxinfo[0].wx}}' class='fullimg margin-20 text-right '></input>
       <view>
       </view>
     </view>

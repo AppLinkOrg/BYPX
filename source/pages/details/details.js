@@ -160,6 +160,7 @@ class Content extends AppBase {
     // if (memberinfo.id == e.currentTarget.dataset.comment_member_id || list.member_id==memberinfo.id) {
 
     this.Base.setMyData({
+      mbid:e.currentTarget.dataset.idx,
       hf: e.currentTarget.id,
       name: e.currentTarget.dataset.id
     })
@@ -196,8 +197,7 @@ class Content extends AppBase {
     var comment_time = Date.parse(new Date());
     var product_id = this.Base.getMyData().list.id;
     var that = this;
-
-
+     var reply_member_id=this.Base.getMyData().userlist.id;
     var api = new OrderApi();
 
     api.comment({
@@ -205,7 +205,7 @@ class Content extends AppBase {
       comment_time: comment_time,
       product_id: product_id,
       comment: liuyan,
-
+      reply_member_id: reply_member_id
     }, (updetedriver) => {
       api.commentlist({
         product_id: that.Base.options.id
@@ -238,7 +238,7 @@ class Content extends AppBase {
     var huifu = this.Base.getMyData().huifu;
     var comment_time = Date.parse(new Date());
     var product_id = this.Base.getMyData().list.id;
-    var reply_member_id = this.Base.getMyData().memberinfo.id;
+    var reply_member_id = this.Base.getMyData().mbid;
 
     var reply_comment_id = this.Base.getMyData().hf;
     console.log(666666);

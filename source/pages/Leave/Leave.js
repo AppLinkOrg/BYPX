@@ -25,14 +25,14 @@ class Content extends AppBase {
   onMyShow() {
 
     var that = this;
-    var api = new OrderApi();
+    var api = new MemberApi();
     var sj = [];
-    api.commentlist({ member_id: this.Base.getMyData().memberinfo.id }, (commentlist) => {
+    api.replymedetail({ reply_member_id: this.Base.getMyData().memberinfo.id,cqq:"1"}, (commentlist) => {
 
       for (var i = 0; i < commentlist.length; i++) {
         sj[i] = that.time_ago(commentlist[i].comment_time_timespan)
-
-
+        var  img = commentlist[i].product_images.split(",");
+        commentlist[i].product_images = img[0];
       }
 
       this.Base.setMyData({ commentlist, sj });
