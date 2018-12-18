@@ -10,9 +10,9 @@
 <view class="flex-wrap  flex-center gd">
    <navigator url="/pages/mywx/mywx"  class="flex-row" style='border-bottom:1px solid #E5E5E5'>
     <view class="margin-20">
-      <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.wodefabu}}'></image>
+      <image class='icon-20 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.wodewx}}'></image>
     </view>
-    <view class="margin-20 txt-black">我的微信</view>
+    <view class="margin-20 txt-black flex-row flex-bottom">我的微信<view class="h6">(方便买家联系)</view></view>
   </navigator>
 
 

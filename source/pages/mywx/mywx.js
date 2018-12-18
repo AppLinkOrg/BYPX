@@ -44,8 +44,12 @@ class Content extends AppBase {
       api.addwx({ wx: wx1, primary_id: id[0].id, member_id: memberid }, (updetedriver)=>{
 
         that.onMyShow();
+        wx.navigateBack(
+
+
+        )
         wx.showToast({
-          title: '成功',
+          title: '修改成功',
           icon: 'success',
           duration: 2000
         })  
@@ -60,6 +64,10 @@ class Content extends AppBase {
       api.addwx({ wx: wx1,  member_id: memberid }, (updetedriver) => {
 
         that.onMyShow();
+        wx.navigateBack(
+
+
+        )
         wx.showToast({
           title: '成功',
           icon: 'success',

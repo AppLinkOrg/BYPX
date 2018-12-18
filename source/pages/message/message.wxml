@@ -6,8 +6,8 @@
   </view>
   <view class=" margin-20 flex-warp flex-1">
     
-    <view class="h6">留言</view>
-    <view class="margin-top-5 h6">还没收到留言呢</view>
+    <view class=" ">留言</view>
+    <view class="margin-top-5 ">还没收到留言呢</view>
 
 
   </view>
@@ -26,8 +26,8 @@
   </view>
   <view class=" margin-20 flex-warp flex-1">
     
-    <view class="h6">留言</view>
-    <view class="margin-top-5 h6 txt-red">查看新留言</view>
+    <view class="">留言</view>
+    <view class="margin-top-5   txt-red">查看新留言</view>
 
 
   </view>
