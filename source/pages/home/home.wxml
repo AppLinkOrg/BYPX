@@ -114,7 +114,7 @@
       </view>
       <view class="flex-3 flex-center text-center flex-row  " style='color:#BBBBBB;'>
 
-        <view class="margin-top-5">
+        <view class="" style='margin-top:13rpx'>
 
           <image class='icon-17 margin-left-10' src='{{uploadpath}}resource/{{res.liulang}}'></image>
 
@@ -124,7 +124,8 @@
 
       </view>
       <view class="flex-3 text-center flex-row  flex-center " style='' id='{{item.id}}' bindtap='fav'>
-        <view class="margin-top-5 ">
+
+        <view class=" " style='margin-top:10rpx'>
 
           <image class='icon-17 margin-left-10' wx:if='{{item.isfav==0}}' src='{{uploadpath}}resource/{{res.shoucanggray}}'></image>
           <image class='icon-17 margin-left-10' wx:if='{{item.isfav>0}}' src='{{uploadpath}}resource/{{res.shoucangcolor}}'></image>
@@ -160,9 +161,9 @@
         <view class=" margin-left-10" style='color:#BBBBBB;text-decoration:line-through;'>{{item.oriprice}}</view>
       </view>
       <view class="flex-3 flex-row" style='color:#BBBBBB;'>
-        <view class="margin-top-5">
+        <view class="margin-top-5 ">
 
-          <image class='icon-17 margin-left-10' src='{{uploadpath}}resource/{{res.liulang}}'></image>
+          <image class='icon-17 margin-left-10  ' src='{{uploadpath}}resource/{{res.liulang}}'></image>
 
 
         </view>

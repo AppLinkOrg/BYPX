@@ -2,13 +2,16 @@
 @import "wxParse/wxParse.wxss";
 /* 测试 */
 
+
 page{
+
   background: white;
 }
 .clear-contact{
   position: absolute;  
   opacity: 0;
 }
+
 .null_icon {
   height: 200rpx;
   width: 240rpx;

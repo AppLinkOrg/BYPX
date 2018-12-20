@@ -47,23 +47,25 @@
 
 
 
-<navigator url='/pages/chatroom/chatroom?member_id={{item.id}}&&post_id={{item.chat.product}}&&product_img={{item.chat.tb_product_img}}' wx:for="{{chatmember}}" wx:key="k" wx:for-index="idx" class="flex-row flex-center bg " style='border-bottom:1px solid #E5E5E5'>
-  <view class=" margin-20 " style='margin-right:0'>
+<view  wx:if="{{item.status!='N'}}"  wx:for="{{chatmember}}" wx:key="k"  wx:for-index="idx" class="flex-row flex-center bg " style='border-bottom:1px solid #E5E5E5'>
+  <view   class=" margin-20 " style='margin-right:0'>
     <image class='icon-40 margin-left-10 margin-top-5' mode='aspectFill' src='{{item.avatarUrl}}'></image>
   </view>
-  <view class=" margin-20 flex-warp flex-1">
+  <navigator  url='/pages/chatroom/chatroom?member_id={{item.id}}&&post_id={{item.chat.product}}&&product_img={{item.chat.tb_product_img}}' class=" margin-20  flex-warp flex-1">
     <view class="txt-black flex-row h6">{{item.nickName}}
 
-      <view wx:if="{{item.chat.isread=='N'&&item.chat.sent_member_id!=memberinfo.id}}" class="margin-left-20 wd  ">未读</view>
-      <view wx:if="{{item.chat.isread=='Y'&&item.chat.sent_member_id!=memberinfo.id}}" class="margin-left-20 yd  ">已读</view>
+      <view wx:if="{{item.chat.isread=='N'&&item.chat.sent_member_id!=memberinfo.id}}" class="margin-left-20 wd  h5 ">未读</view>
+      <view wx:if="{{item.chat.isread=='Y'&&item.chat.sent_member_id!=memberinfo.id}}" class="margin-left-20 yd  h5">已读</view>
     </view>
     <view class="h6">{{item.chat.msg}}</view>
     <view class="margin-top-5 h6">{{item.chat.timeduration}}</view>
 
 
-  </view>
-  <view class=" margin-right-20">
+  </navigator>
+  <navigator  url='/pages/chatroom/chatroom?member_id={{item.id}}&&post_id={{item.chat.product}}&&product_img={{item.chat.tb_product_img}}' class=" margin-right-20 ">
     <image class='icon-60  margin-top-5' mode='aspectFill' src='{{uploadpath}}product/{{item.chat.tb_product_img}}'></image>
-  </view>
-
-</navigator>
+  </navigator>
+   <view class="margin-right-10 h5  bk txt-red" 
+    bindtap="shanchu" data-name="{{item.chat.product}}"   data-id="{{item.id}}" 
+     id="{{item.chat.sent_member_id}}" style=''>删除</view> 
+</view>

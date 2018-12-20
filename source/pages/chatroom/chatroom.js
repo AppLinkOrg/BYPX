@@ -101,6 +101,11 @@ class Content extends AppBase {
       , tb_product_img: this.Base.getMyData().product_img}, (ret) => {
 
     });
+    api.deldeletchat({ deleteid: this.Base.options.member_id, product_id: this.Base.options.post_id, other:this.Base.getMyData().memberinfo.id },()=>{
+
+
+
+    })
     this.Base.setMyData({ msg: "" });
     
   }

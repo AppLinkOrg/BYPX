@@ -3,6 +3,9 @@ import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
 import { OrderApi } from "../../apis/order.api.js";
+import {
+  MemberApi
+} from "../../apis/member.api.js";
 class Content extends AppBase {
   constructor() {
     super();
@@ -28,7 +31,7 @@ class Content extends AppBase {
     super.onLoad(options);
   }
   inputTyping(e) {
-    this.biase.setMyData({
+    this.Base.setMyData({
       inputVal: e.detail.value
     });
   }
@@ -38,7 +41,7 @@ class Content extends AppBase {
     api.searchkeyword({}, (ret) => {
       console.log(ret);
       console.log(66666666);
-      this.Base.setMyData({ history: ret.history, hotest:ret.history });
+      this.Base.setMyData({ history: ret.history, hotest: ret.hotest });
     });
   }
   clearrecord() {
@@ -48,8 +51,11 @@ class Content extends AppBase {
       content: '是否确定清空我的搜索记录？',
       success(e) {
         if (e.confirm) {
-          that.Base.setMyData({ history: [] });
-
+          var api=new MemberApi();
+          api.delkeyword({ member_id: that.Base.getMyData().memberinfo.id},(qwe)=>{
+              that.onMyShow();
+ 
+         })
          
         }
       }
