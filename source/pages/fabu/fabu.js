@@ -172,7 +172,9 @@ class Content extends AppBase {
 
 
   confirm(e) {
+    
     var data = e.detail.value;
+    console.log(e);
     if (data.name == "") {
       this.Base.info("请输入宝贝名称");
       return;
