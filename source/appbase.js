@@ -155,7 +155,7 @@ export class AppBase {
 
         return;
       }
-      if (instinfo.priceswitch == '否') {
+      if (instinfo.priceswitch != '否') {
         
         wx.reLaunch({
           url: '/pages/content/content?keycode=kaiguan&title=毕业铺子介绍',

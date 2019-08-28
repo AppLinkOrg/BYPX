@@ -1,13 +1,10 @@
 {
   "pages": [
     "pages/home/home",
-  "pages/auth/auth",
-
-  "pages/Leave/Leave",
+    "pages/auth/auth",
+    "pages/Leave/Leave",
     "pages/mywx/mywx",
-   
     "pages/mycollection/mycollection",
-   
     "pages/content/content",
     "pages/delivery/delivery",
     "pages/aboutus/aboutus",
@@ -19,7 +16,6 @@
     "pages/chatroom/chatroom",
     "pages/fabu/fabu",
     "pages/myrelease/myrelease",
-    
     "pages/index/index",
     "pages/details/details",
     "pages/list/list",
@@ -36,7 +32,7 @@
   "tabBar": {
     "color": "#bfbfbf",
     "selectedColor": "#4C556E",
-    "borderStyle": "#4C556E",
+    "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
       {
@@ -64,5 +60,6 @@
         "selectedIconPath": "images/icons/d-1.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
